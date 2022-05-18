@@ -543,5 +543,5 @@ p
 * Twitter: [@nrennie35](https://twitter.com/nrennie35)
 * GitHub: [github.com/nrennie](https://github.com/nrennie)
 * Website: [nrennie.rbind.io](https://nrennie.rbind.io/)
-* Slides: [nrennie.rbind.io/talks/2022-May-RLadies-Nairobi/](https://nrennie.rbind.io/talks/2022-May-RLadies-Nairobi/)
+* Slides: [nrennie.rbind.io/talks/2022-may-rladies-nairobi/](https://nrennie.rbind.io/talks/2022-may-rladies-nairobi/)
 
