@@ -323,6 +323,8 @@ Part 2
 
 * {grid}
 * {DiagrammeR}
+* {igraph}
+* {ggnetwork} / {ggnet2} / {ggraph}
 * {tikz} (LaTeX)
 * others...
 
