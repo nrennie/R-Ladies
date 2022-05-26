@@ -4,6 +4,7 @@ author: Nicola Rennie
 date: "26 May 2022"
 output: 
   ioslides_presentation: 
+    self-contained: true
     widescreen: true
     logo: logo.jpg
 ---
