@@ -1,0 +1,550 @@
+---
+title: "Styling {ggplot2} graphics for accessibility"
+subtitle: ""
+author: "Nicola Rennie"
+format:
+  revealjs: 
+    highlight-style: breeze
+    width: 1600
+    height: 900
+    fontsize: 1.3em
+    logo: logo.svg
+    theme: [custom.scss, default]
+    preview-links: true
+    self-contained: true
+    footer: "R-Ladies London"
+---
+
+# My R Journey (so far...) {background-color="#5b868d"}
+
+## My R Journey (so far...) 
+
+```{r}
+#| eval: true
+#| echo: false
+#| fig-width: 8
+#| fig-height: 3
+#| fig-align: center
+#| fig-alt: "A stream graph showing the use of R for the author between 2014 and present day"
+library(tibble)
+library(ggplot2)
+library(ggstream)
+library(showtext)
+font_add_google(name = "Lato", family = "lato")
+showtext_auto()
+plot_df <- tibble(date = c(2014:2022, 2022.75), 
+                  value = c(0, 0.3, 0.1, 0.2, 0.3, 0.9, 0.5, 0.8, 0.95, 0.95), 
+                  fill = rep("#12a79d", 10))
+ggplot(data = plot_df, 
+       mapping = aes(x = date, y = value, fill = fill)) +
+  geom_stream(bw = 0.9) +
+  # undergrad
+  geom_errorbar(aes(y = 0.3, xmin = 2014.25, xmax = 2017.5), width = 0.1, colour = "#12a79d") +
+  annotate("text", x = 2015.8, y = 0.45, label = "Bsc (Maths)",
+           hjust = 0.5, family = "lato", size = 8, lineheight = 0.4, colour = "#5b868d") +
+  # mres
+  geom_errorbar(aes(y = -0.5, xmin = 2017.75, xmax = 2018.75), width = 0.1, colour = "#12a79d") +
+  annotate("text", x = 2018.25, y = -0.7, label = "MRes\n(Stats & OR)",
+           hjust = 0.5, family = "lato", size = 8, lineheight = 0.4, colour = "#5b868d") +
+  # phd
+  geom_errorbar(aes(y = -0.5, xmin = 2018.75, xmax = 2021.5), width = 0.1, colour = "#12a79d") +
+  annotate("text", x = 2020.25, y = -0.7, label = "PhD\n(Stats & OR)",
+           hjust = 0.5, family = "lato", size = 8, lineheight = 0.4, colour = "#5b868d") +
+  # jr
+  geom_errorbar(aes(y = 0.7, xmin = 2021.8, xmax = 2022.70), width = 0.1, colour = "#12a79d") +
+  annotate("text", x = 2022.2, y = 0.95, label = "Jumping\nRivers",
+           hjust = 0.5, family = "lato", size = 8, lineheight = 0.4, colour = "#5b868d") +
+  labs(x = "", y = "") +
+  scale_fill_identity() +
+  scale_x_continuous(breaks = c(2014:2022), 
+                     limits = c(2013, 2023)) +
+  scale_y_continuous(limits = c(-1.1, 1.1)) +
+  theme_minimal() +
+  theme(legend.position = "none", 
+        plot.background = element_rect(colour = "#dae5e7", fill = "#dae5e7"), 
+        panel.background = element_rect(colour = "#dae5e7", fill = "#dae5e7"), 
+        panel.grid.minor = element_blank(), 
+        panel.grid.major.y = element_blank(),
+        axis.text.y = element_blank(), 
+        axis.text.x = element_text(family = "lato", size = 22, colour = "#5b868d"))
+```
+
+## My {ggplot2} journey (so far...)
+
+. . . 
+
+<p align="center">
+  <img src="https://github.com/nrennie/tidytuesday/blob/main/2022/2022-08-16/20220816_files/figure-html/villanelle-1.png?raw=true" width="20%" alt="A radar chart showing personality traits of Villanelle from Killing Eve">
+  <img src="https://github.com/nrennie/tidytuesday/blob/main/2022/2022-08-16/20220816_files/figure-html/eve-1.png?raw=true" width="20%" alt="A radar chart showing personality traits of Eve from Killing Eve">
+  <img src="https://github.com/nrennie/tidytuesday/blob/main/2022/2022-08-16/20220816_files/figure-html/carolyn-1.png?raw=true" width="20%" alt="A radar chart showing personality traits of Carolyn from Killing Eve">
+</p>
+
+## My {ggplot2} journey (so far...)
+
+<p align="center">
+  <img src="https://github.com/nrennie/tidytuesday/blob/main/2022/2022-05-10/20220510.png?raw=true" width="60%" alt="A bar chart showing the number of books by the top 10 authors on the New York bestsellers list">
+</p>
+
+## My {ggplot2} journey (so far...)
+
+<p align="center">
+    <img src="https://github.com/nrennie/tidytuesday/blob/main/2021/21-12-2021/21122021.jpg?raw=true" width="27%" alt="A chart showing the amount of caffeine in different starbucks drinks. Caffeine amount is shown by colour of coffee cup icons.">
+</p>
+
+## My {ggplot2} journey (so far...)
+
+<p align="center">
+<img src="https://github.com/nrennie/30daychartchallenge/blob/main/2022/viz/day_29_final.png?raw=true" width="40%" alt="A flowchart showing the story of goldilocks">
+</p>
+
+## What I do at Jumping Rivers?
+
+::: columns
+::: {.column width="32%"}
+<p style="text-align:center;">
+Consultancy
+<img src="images/cons.png" alt="Hex stickers for four common R packages" width="80%">
+</p>
+:::
+
+::: {.column width="32%" .fragment}
+<p style="text-align:center;">
+Training
+<img src="images/training.png" alt="Cartoon of a teacher at the front of a class with a board showing an R" width="80%">
+</p>
+:::
+
+::: {.column width="32%" .fragment}
+<p style="text-align:center;">
+R Community
+<img src="images/sip.png" alt="Shiny in Production conference logo of a robot holding a spanner" width="70%">
+</p>
+:::
+
+:::
+
+---
+
+### Styling {ggplot2} graphics for accessibility 
+
+<br> 
+
+#### {{< fa spell-check >}} &nbsp; Fonts <br> 
+
+<hr> 
+
+#### {{< fa palette >}} &nbsp; Colours <br> 
+
+<hr> 
+
+#### {{< fa pencil >}} &nbsp; Alt Text <br> 
+
+# {{< fa spell-check >}} &nbsp; Fonts {background-color="#5b868d"}
+
+## Fonts in {ggplot2}
+
+::: {.incremental}
+
+* {extrafont}
+* {ragg}
+* {showtext}
+
+:::
+
+## Fonts in {ggplot2}
+
+<br>
+Choose a font: [fonts.google.com](https://fonts.google.com/)
+
+. . .
+
+<br>
+Load it into R:
+
+```{r}
+#| eval: true
+#| echo: true
+#| message: false
+library(showtext)
+font_add_google(name = "Bungee Shade", 
+                family = "bungee")
+showtext_auto()
+```
+
+```{r}
+#| eval: true
+#| echo: false
+theme_set(theme_grey(base_size = 40))
+```
+
+## Fonts in {ggplot2}
+
+```{r}
+#| eval: true
+#| echo: true
+#| output-location: column
+ggplot(data = mtcars,
+      mapping = aes(x = mpg,
+                    y = disp)) +
+  geom_point() +
+  labs(title = "My plot title")
+
+```
+
+
+## Fonts in {ggplot2}
+
+```{r}
+#| eval: true
+#| echo: true
+#| output-location: column
+#| code-line-numbers: "6,7,8"
+ggplot(data = mtcars,
+      mapping = aes(x = mpg,
+                    y = disp)) +
+  geom_point() +
+  labs(title = "My plot title") +
+  theme(
+    plot.title = element_text(
+      family = "bungee"))
+```
+
+## How do I choose a font?
+
+. . . 
+
+<p style="font-family: Arial; font-size: 44pt;">Arial: Does it pass the 1Il test?</p><br>
+
+<p style="font-family: Times New Roman; font-size: 44pt;">Times New Roman: Does it pass the 1Il test?</p><br>
+
+<p style="font-family: Courier New; font-size: 44pt;">Courier New: Does it pass the 1Il test?</p>
+
+
+# {{< fa palette >}} &nbsp; Colours {background-color="#5b868d"}
+
+## Colours elements in {ggplot2}
+
+::: {.incremental}
+
+* Colour of geoms (mapped in `aes()`)
+
+* Colour of geoms (not mapped in `aes()`)
+
+* `theme()` elements e.g. background colour
+
+:::
+
+## Defining colours in {ggplot2}
+
+Let's make an example plot to demonstrate... <br><br>
+
+::: columns
+::: {.column}
+
+```{r}
+#| echo: false
+#| eval: true
+lemurs <- read.csv("lemurs_small.csv")
+knitr::kable(lemurs)
+```
+
+```{r}
+#| echo: false
+#| eval: true
+lemurs$name <- stringr::str_wrap(lemurs$name, width = 12)
+```
+:::
+
+::: {.column}
+<p style="text-align:center;">
+<img src="images/lemurs.jpg" alt="Group of ring-tailed lemurs" width="70%">
+<small>Image: Unsplash</small>
+</p>
+:::
+:::
+
+## Defining colours in {ggplot2}
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column-fragment
+#| fig-alt: "Bar chart showing the number of lemurs for three different species)"
+ggplot(data = lemurs, 
+       aes(x = name,
+           y = n,
+           fill = name)) +
+  geom_col()
+```
+
+## Choosing colours in {ggplot2}
+
+`scale_*_brewer()`: [colorbrewer2.org](https://colorbrewer2.org/)
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column-fragment
+#| code-line-numbers: "6,7"
+#| fig-alt: "Bar chart showing the number of lemurs for three different species)"
+ggplot(data = lemurs, 
+       aes(x = name,
+           y = n,
+           fill = name)) +
+  geom_col() +
+  scale_fill_brewer(
+    palette = "Dark2")
+```
+
+## Choosing colours in {ggplot2}
+
+Colour palette packages: [github.com/EmilHvitfeldt/paletteer](https://github.com/EmilHvitfeldt/paletteer)
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column-fragment
+#| code-line-numbers: "1,7"
+#| fig-alt: "Bar chart showing the number of lemurs for three different species)"
+library(rcartocolor)
+ggplot(data = lemurs, 
+       aes(x = name,
+           y = n,
+           fill = name)) +
+  geom_col() +
+  scale_fill_carto_d("Prism")
+```
+
+## Choosing colours in {ggplot2}
+
+Defining your own colours
+
+* [imagecolorpicker.com](https://imagecolorpicker.com/en)
+
+* [coolors.co](https://coolors.co/0e1116-374a67-616283-9e7b9b-cb9cf2)
+
+## Choosing colours in {ggplot2}
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column-fragment
+#| code-line-numbers: "6,7,8,9"
+#| fig-alt: "Bar chart showing the number of lemurs for three different species)"
+ggplot(data = lemurs, 
+       aes(x = name,
+           y = n,
+           fill = name)) +
+  geom_col() +
+  scale_fill_manual(
+    values = c("#157145",
+               "#4C1E4F",
+               "#DE6E4B"))
+```
+
+## Are your colours accessible?
+
+```{r}
+#| echo: true
+#| eval: true
+my_colours = c("#157145", "#4C1E4F", "#DE6E4B")
+```
+
+* {colorblindcheck}
+
+* {colorblindr}
+
+## {colorblindcheck}
+
+```{r}
+#| echo: true
+#| eval: true
+colorblindcheck::palette_check(my_colours)
+```
+
+## {colorblindr}
+
+```{r}
+#| echo: true
+#| eval: true
+g <- ggplot(data = lemurs, 
+            aes(x = name,
+                y = n,
+                fill = name)) +
+  geom_col() +
+  scale_fill_manual(
+    values = c("#157145",
+               "#4C1E4F",
+               "#DE6E4B"))
+```
+
+```{r}
+#| eval: true
+#| echo: false
+theme_set(theme_grey(base_size = 20))
+```
+
+. . .
+
+Check it with {colorblindr}:
+
+```{r}
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| fig-alt: "Grid showing how bar chart looks with different types of colorblindness"
+#| output-location: slide
+library(colorblindr)
+cvd_grid(g)
+```
+
+# {{< fa pencil >}} &nbsp; Alt Text {background-color="#5b868d"}
+
+## How to write alt text for plots
+
+<p style="text-align:center;">
+<img src="images/alt.png" alt="Screenshot of article explaining how to write alt text for graphs." width="50%">
+<small>Link: <a href="https://medium.com/nightingale/writing-alt-text-for-data-visualization-2a218ef43f81">medium.com/nightingale/writing-alt-text-for-data-visualization-2a218ef43f81</a> </small>
+</p>
+
+## Writing alt text in {ggplot2}
+
+```{r}
+#| eval: true
+#| echo: true
+#| code-line-numbers: "6"
+g <- ggplot(data = mtcars,
+            mapping = aes(x = mpg,
+                          y = disp)) +
+  geom_point() +
+  labs(alt = "Some of my own alt text.")
+```
+
+. . .
+
+<br>
+Extract the alt text:
+
+```{r}
+#| eval: true
+#| echo: true
+get_alt_text(g)
+```
+
+
+## Alt text in Quarto 
+
+```{r}
+#| echo: fenced
+#| fig.alt: !expr ggplot2::get_alt_text(g)
+#| fig-align: center
+#| output-location: slide
+g
+```
+. . .
+
+<br>
+The RMarkdown syntax:
+
+``` 
+{r, fig.alt=ggplot2::get_alt_text(g)}
+
+```
+
+## Something a bit experimental...
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+remotes::install_github("nrennie/ggalttext")
+```
+
+
+```{r}
+#| eval: true
+#| echo: true
+#| code-line-numbers: false
+library(ggalttext)
+```
+
+## Something a bit experimental...
+
+```{r}
+#| eval: true
+#| echo: true
+g1 <- ggplot(data = mtcars,
+            mapping = aes(x = mpg,
+                          y = disp)) +
+  geom_point()
+generate_alt_text(g1)
+```
+
+## Something a bit experimental...
+
+```{r}
+#| eval: true
+#| echo: true
+g2 <- ggplot(data = mtcars,
+            mapping = aes(x = mpg,
+                          y = disp)) +
+  geom_point() +
+  labs(title = "My plot", 
+       subtitle = "A descriptive subtitle.", 
+       alt = "Some of my own alt text.")
+generate_alt_text(g2)
+```
+
+## Something a bit experimental...
+
+```{r}
+#| echo: fenced
+#| fig.alt: !expr ggalttext::generate_alt_text(g2)
+#| fig-align: center
+#| output-location: slide
+g2
+```
+
+## Something a bit experimental...
+
+<p style="text-align:center;">
+<img src="images/ggalt.png" alt="Screenshot of tweet from Hadley Wickham stating better alt text for ggplot2 is being explored." width="60%">
+</p>
+
+## Resources
+
+{ggplot2}
+
+* [https://github.com/rfordatascience/tidytuesday](https://github.com/rfordatascience/tidytuesday)
+
+Accessibility
+
+* [https://medium.com/nightingale/writing-alt-text-for-data-visualization-2a218ef43f81](https://medium.com/nightingale/writing-alt-text-for-data-visualization-2a218ef43f81)
+
+* [https://blog.datawrapper.de/text-in-data-visualizations/](https://blog.datawrapper.de/text-in-data-visualizations/)
+
+
+## Questions?
+
+::: columns
+::: {.column}
+
+<br>
+
+{{< fa brands twitter >}} [@nrennie35](https://twitter.com/nrennie35)
+
+{{< fa brands github >}} [nrennie](https://github.com/nrennie)
+
+{{< fa globe >}} [nrennie.rbind.io](nrennie.rbind.io/)
+
+{{< fa briefcase >}} [jumpingrivers.com](https://www.jumpingrivers.com/)
+
+:::
+::: {.column}
+
+<p style="text-align:center;">
+<img src="images/qr_code.png" alt="QR code going to nrennie.rbind.io" width="70%">
+</p>
+
+:::
+:::

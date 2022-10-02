@@ -1,0 +1,52 @@
+/*-- scss:defaults --*/
+
+$body-color: #5b868d;
+$link-color: #12a79d;
+$body-bg: #dae5e7;
+$code-block-font-size: 0.6em;
+$code-block-border-color: #dae5e7;
+$presentation-h1-font-size: 2.6em;
+$presentation-h2-font-size: 1.7em;
+$presentation-h3-font-size: 1.4em;
+$presentation-h4-font-size: 1.1em;
+$presentation-font-size-root: 44pt;
+$presentation-line-height: 1.5em;
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+h1, h2, h3, h4, p {
+  font-family: 'Lato', 'Lato-Regular', Arial, sans-serif;
+}
+
+/*-- scss:rules --*/
+
+.reveal .footer {
+  color: #5b868d;
+  font-family: 'Lato', 'Lato-Regular', Arial, sans-serif;
+  padding-bottom: 25px;
+}
+
+.reveal .slide-logo {
+  right: 12px;
+  padding-bottom: 20px !important;
+  max-height: 150px !important;
+}
+
+.reveal .slide-menu-button {
+    left: 100px;
+    top: 30px;
+    padding-left: 20px;
+    color: #12a79d;
+  }
+
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+  color: #5b868d;
+  height: 2%;
+}
+
+.code_class {
+height: 700px;
+width: 1200px;
+}
+
