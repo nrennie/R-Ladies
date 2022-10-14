@@ -24,7 +24,7 @@ format:
 #| fig-width: 8
 #| fig-height: 3
 #| fig-align: center
-#| fig-alt: "A stream graph showing the use of R for the author between 2014 and present day. An increase is seen from 2019, and then more significantly in the last year."
+#| fig-alt: "A stream graph showing the use of R for the author between 2014 and present day. The y-axis represents the general quantity of how often R was used, with no units. An increase is seen from 2019, and then more significantly in the last year."
 library(tibble)
 library(ggplot2)
 library(ggstream)
@@ -73,27 +73,27 @@ ggplot(data = plot_df,
 . . . 
 
 <p align="center">
-  <img src="https://github.com/nrennie/tidytuesday/blob/main/2022/2022-08-16/20220816_files/figure-html/villanelle-1.png?raw=true" width="20%" alt="A radar chart showing personality traits of Villanelle from Killing Eve.">
-  <img src="https://github.com/nrennie/tidytuesday/blob/main/2022/2022-08-16/20220816_files/figure-html/eve-1.png?raw=true" width="20%" alt="A radar chart showing personality traits of Eve from Killing Eve.">
-  <img src="https://github.com/nrennie/tidytuesday/blob/main/2022/2022-08-16/20220816_files/figure-html/carolyn-1.png?raw=true" width="20%" alt="A radar chart showing personality traits of Carolyn from Killing Eve.">
+  <img src="https://github.com/nrennie/tidytuesday/blob/main/2022/2022-08-16/20220816_files/figure-html/villanelle-1.png?raw=true" width="20%" alt="A radar chart showing personality traits of Villanelle from Killing Eve. Traits shown include sarcastic, assertive, competent, hedonist, mysterious, narcissistic, and rebellious. The character scores highly in all. A photograph of the character is shown in the middle of the radar chart. The Killing Eve logo is shown at the top. The graphic is sized to fit best on mobile view.">
+  <img src="https://github.com/nrennie/tidytuesday/blob/main/2022/2022-08-16/20220816_files/figure-html/eve-1.png?raw=true" width="20%" alt="A radar chart showing personality traits of Eve from Killing Eve. Traits shown include sarcastic, assertive, competent, hedonist, mysterious, narcissistic, and rebellious. The character scores just above 50% in all. A photograph of the character is shown in the middle of the radar chart. The Killing Eve logo is shown at the top. The graphic is sized to fit best on mobile view.">
+  <img src="https://github.com/nrennie/tidytuesday/blob/main/2022/2022-08-16/20220816_files/figure-html/carolyn-1.png?raw=true" width="20%" alt="A radar chart showing personality traits of Carolyn from Killing Eve. Traits shown include sarcastic, assertive, competent, hedonist, mysterious, narcissistic, and rebellious. The character scores between 60 - 83% for all. A photograph of the character is shown in the middle of the radar chart. The Killing Eve logo is shown at the top. The graphic is sized to fit best on mobile view.">
 </p>
 
 ## My {ggplot2} journey (so far...)
 
 <p align="center">
-  <img src="https://github.com/nrennie/tidytuesday/blob/main/2022/2022-05-10/20220510.png?raw=true" width="60%" alt="A bar chart showing the number of books by the top 10 authors on the New York bestsellers list, where the bars are constructed of book titles stacked on top of each other.">
+  <img src="https://github.com/nrennie/tidytuesday/blob/main/2022/2022-05-10/20220510.png?raw=true" width="60%" alt="A bar chart showing the number of books by the top 10 authors on the New York bestsellers list, where the bars are constructed of book titles stacked on top of each other. The background is black and the titles of the books are coloured white. The ten authors shown are, in order, Danielle Steele, Stuarrt Woods, Stephen King, Robert B. Parker, John Sandford, David Baldacci, Dean Koontz, Mary Higgins Clark, Sandra Brown, and Nora Roberts. Danielle Steele is the most popular author by far with 116 books on the list.">
 </p>
 
 ## My {ggplot2} journey (so far...)
 
 <p align="center">
-    <img src="https://github.com/nrennie/tidytuesday/blob/main/2021/21-12-2021/21122021.jpg?raw=true" width="27%" alt="A chart showing the amount of caffeine in different starbucks drinks. Caffeine amount is shown by colour of coffee cup icons.">
+    <img src="https://github.com/nrennie/tidytuesday/blob/main/2021/21-12-2021/21122021.jpg?raw=true" width="27%" alt="A chart showing nine different starbucks drinks (on the y axis) and different sizes of cups (on the x axis). For each combination of drink and size on offer, an icon of a cup is drawn. The size of the icon relates to the size of the cup. The shade of green of the icon relates to the amount of caffeine in the drink, with darker green denoted higher caffeine content. The Starbucks logo is shown at the top of the graphic.">
 </p>
 
 ## My {ggplot2} journey (so far...)
 
 <p align="center">
-<img src="https://github.com/nrennie/30daychartchallenge/blob/main/2022/viz/day_29_final.png?raw=true" width="40%" alt="A flowchart showing the story of goldilocks. A drawing of the bears and goldilocks has been added to the top-right corner.">
+<img src="https://github.com/nrennie/30daychartchallenge/blob/main/2022/viz/day_29_final.png?raw=true" width="40%" alt="A flowchart titled The Goldilocks Decision Tree. The flowchart shows the decisions made in the story of goldilocks and the three bears. The decisions included are: porridge (too hot, just right, too cold), chairs (too big, just right, too small), beds (too hard, just right, too soft). The flowchart ends with bears. A drawing of the bears and goldilocks has been added to the top-right corner, obtained from the New York Public Library. ">
 </p>
 
 ## What I do at Jumping Rivers?
@@ -116,7 +116,7 @@ Training
 ::: {.column width="32%" .fragment}
 <p style="text-align:center;">
 R Community
-<img src="images/sip.png" alt="Shiny in Production conference logo of a robot holding a spanner." width="70%">
+<img src="images/sip.png" alt="Shiny in Production conference logo of a robot holding a spanner with its left hand. The hex sticker for the Shiny R package is shown on front of the robot." width="70%">
 </p>
 :::
 
@@ -183,110 +183,13 @@ showtext_auto()
 ```{r}
 #| eval: true
 #| echo: false
-theme_set(theme_grey(base_size = 40) + theme(legend.position = "none"))
+theme_set(theme_grey(base_size = 40) + 
+            theme(legend.position = "none", 
+                  plot.background = element_rect(colour = "#dae5e7", fill = "#dae5e7"), 
+                  panel.background = element_rect(colour = "#dae5e7", fill = "#dae5e7")))
 ```
 
 ## Fonts in {ggplot2}
-
-```{r}
-#| eval: true
-#| echo: true
-#| output-location: column
-#| fig-alt: "A scatter plot of the mtcars data set from ggplot2 showing mpg on the x axis and disp on the y axis. The title of the plot is reads My Plot Title."
-ggplot(data = mtcars,
-       mapping = aes(x = mpg,
-                     y = disp)) +
-  geom_point() +
-  labs(title = "My plot title")
-
-```
-
-
-## Fonts in {ggplot2}
-
-```{r}
-#| eval: true
-#| echo: true
-#| fig-alt: "A scatter plot of the mtcars data set from ggplot2 showing mpg on the x axis and disp on the y axis. The title of the plot is reads My Plot Title and is now shown in a different font."
-#| output-location: column
-#| code-line-numbers: "6,7,8"
-ggplot(data = mtcars,
-       mapping = aes(x = mpg,
-                     y = disp)) +
-  geom_point() +
-  labs(title = "My plot title") +
-  theme(
-    plot.title = element_text(
-      family = "bungee"))
-```
-
-## How do I choose a font?
-
-. . . 
-
-<p align="center">
-<img src="images/fonts_all.png" alt="Screenshot of Google Fonts search page with top three font samples shown." width="80%">
-</p>
-
-## How do I choose a font?
-
-<p style="font-family: Arial; font-size: 44pt;">Arial: Does it pass the 1Il test?</p><br>
-
-<p style="font-family: Times New Roman; font-size: 44pt;">Times New Roman: Does it pass the 1Il test?</p><br>
-
-<p style="font-family: Courier New; font-size: 44pt;">Courier New: Does it pass the 1Il test?</p>
-
-
-# {{< fa palette >}} &nbsp; Colours {background-color="#5b868d"}
-
-## Colour elements in {ggplot2}
-
-
-::: columns
-::: {.column width="32%"}
-Colour of geoms (mapped to variables in `aes()`)
-```{r}
-#| fig-alt: "Example of a bar chart showing A, B, and C on the x axis and 1, 2, and 3 on the y axis. Bars are coloured based on the x axis values."
-#| echo: false
-#| eval: true
-ggplot(data = tibble(x = c("A", "B", "C"),
-                     y = 1:3)) +
-  geom_col(aes(x = x, y = y, fill = x)) +
-  theme_minimal()
-```
-:::
-
-::: {.column width="32%" .fragment}
-Colour of geoms (not mapped in `aes()`)
-```{r}
-#| fig-alt: "Example of a bar chart showing A, B, and C on the x axis and 1, 2, and 3 on the y axis. Bars are all coloured blue."
-#| echo: false
-#| eval: true
-ggplot(data = tibble(x = c("A", "B", "C"),
-                     y = 1:3)) +
-  geom_col(aes(x = x, y = y), fill = "#12a79d") +
-  theme_minimal()
-```
-:::
-
-::: {.column width="32%" .fragment}
-`theme()` elements e.g. background colour
-```{r}
-#| fig-alt: "Example of a bar chart showing A, B, and C on the x axis and 1, 2, and 3 on the y axis. Background is coloured blue."
-#| echo: false
-#| eval: true
-ggplot(data = tibble(x = c("A", "B", "C"),
-                     y = 1:3)) +
-  geom_col(aes(x = x, y = y)) +
-  theme_minimal() +
-  theme(panel.background = element_rect(fill = "#12a79d"))
-```
-:::
-
-:::
-
-
-## Defining colours in {ggplot2}
 
 Let's make an example plot to demonstrate... <br><br>
 
@@ -315,14 +218,124 @@ lemurs$name <- stringr::str_wrap(lemurs$name, width = 12)
 :::
 :::
 
+## Fonts in {ggplot2}
+
+```{r}
+#| eval: true
+#| echo: true
+#| output-location: column
+#| fig-alt: "A bar chart titled Lemurs at Duke Lemur Center. On the x-axis three species of lemurs are shown including the Crowned lemur, Gray mouse lemur, and Ring-tailed lemur. On the y-axis the count of the number of each species is shown. The number of lemurs ranges from just under 2500 for Crowned lemurs, to almost 12500 for Gray mouse lemurs. The number of Crowned lemurs is significantly lower than the other two species shown. The plot is titled Lemurs! and the plot title is shown with the default font."
+ggplot(lemurs, 
+       aes(x = name,
+           y = n)) +
+  geom_col() +
+  labs(title = "Lemurs!")
+
+```
+
+
+## Fonts in {ggplot2}
+
+```{r}
+#| eval: true
+#| echo: true
+#| fig-alt: "A bar chart titled Lemurs at Duke Lemur Center. On the x-axis three species of lemurs are shown including the Crowned lemur, Gray mouse lemur, and Ring-tailed lemur. On the y-axis the count of the number of each species is shown. The number of lemurs ranges from just under 2500 for Crowned lemurs, to almost 12500 for Gray mouse lemurs. The number of Crowned lemurs is significantly lower than the other two species shown. The plot is titled Lemurs! and the plot title is shown with the newly imported Bungee Shade font."
+#| output-location: column
+#| code-line-numbers: "6,7,8"
+ggplot(lemurs, 
+       aes(x = name,
+           y = n)) +
+  geom_col() +
+  labs(title = "Lemurs!") +
+  theme(
+    plot.title = element_text(
+      family = "bungee"))
+```
+
+## How do I choose a font?
+
+. . . 
+
+<p align="center">
+<img src="images/fonts_all.png" alt="Screenshot of Google Fonts search page with top three font samples shown." width="80%">
+</p>
+
+## How do I choose a font?
+
+<p style="font-family: Arial; font-size: 44pt;">Sans serif</p><br>
+
+<p style="font-family: Times New Roman; font-size: 44pt;">Serif</p><br>
+
+<p style="font-family: Courier New; font-size: 44pt;">Monospace</p>
+
+## How do I choose a font?
+
+<p style="font-family: Arial; font-size: 44pt;">Sans serif: Does it pass the 1Il test?</p><br>
+
+<p style="font-family: Times New Roman; font-size: 44pt;">Serif: Does it pass the 1Il test?</p><br>
+
+<p style="font-family: Courier New; font-size: 44pt;">Monospace: Does it pass the 1Il test?</p>
+
+## Font recommendations
+
+* Calibri
+
+* Source Sans Pro
+
+* Noto Sans
+
+* Raleway
+
+# {{< fa palette >}} &nbsp; Colours {background-color="#5b868d"}
+
+## Colour elements in {ggplot2}
+
+
+::: columns
+::: {.column width="32%"}
+Colour of geoms (mapped to variables in `aes()`)
+```{r}
+#| fig-alt: "A bar chart bar chart showing A, B, and C on the x axis with values 1, 2, and 3 on the y axis. Bars are coloured based on the x axis values."
+#| echo: false
+#| eval: true
+ggplot(tibble(x = c("A", "B", "C"), y = 1:3)) +
+  geom_col(aes(x = x, y = y, fill = x)) 
+```
+:::
+
+::: {.column width="32%" .fragment}
+Colour of geoms (not mapped in `aes()`)
+```{r}
+#| fig-alt: "A bar chart bar chart showing A, B, and C on the x axis with values 1, 2, and 3 on the y axis. Bars are all coloured blue."
+#| echo: false
+#| eval: true
+ggplot(data = tibble(x = c("A", "B", "C"), y = 1:3)) +
+  geom_col(aes(x = x, y = y), fill = "#12a79d") 
+```
+:::
+
+::: {.column width="32%" .fragment}
+`theme()` elements e.g. background colour
+```{r}
+#| fig-alt: "A bar chart bar chart showing A, B, and C on the x axis with values 1, 2, and 3 on the y axis. The background of the plot is coloured blue."
+#| echo: false
+#| eval: true
+ggplot(data = tibble(x = c("A", "B", "C"), y = 1:3)) +
+  geom_col(aes(x = x, y = y)) +
+  theme(panel.background = element_rect(fill = "#12a79d"))
+```
+:::
+
+:::
+
 ## Defining colours in {ggplot2}
 
 ```{r}
 #| echo: true
 #| eval: true
 #| output-location: column-fragment
-#| fig-alt: "Bar chart showing the number of lemurs for three different species."
-ggplot(data = lemurs, 
+#| fig-alt: "A bar chart titled Lemurs at Duke Lemur Center. On the x-axis three species of lemurs are shown including the Crowned lemur, Gray mouse lemur, and Ring-tailed lemur. On the y-axis the count of the number of each species is shown. The number of lemurs ranges from just under 2500 for Crowned lemurs, to almost 12500 for Gray mouse lemurs. The number of Crowned lemurs is significantly lower than the other two species shown. The bars are coloured based on species using the default colour scheme."
+ggplot(lemurs, 
        aes(x = name,
            y = n,
            fill = name)) +
@@ -338,8 +351,8 @@ ggplot(data = lemurs,
 #| eval: true
 #| output-location: column-fragment
 #| code-line-numbers: "6,7"
-#| fig-alt: "Bar chart showing the number of lemurs for three different species with colorbrewer Dark2 palette colours for the bars."
-ggplot(data = lemurs, 
+#| fig-alt: "A bar chart titled Lemurs at Duke Lemur Center. On the x-axis three species of lemurs are shown including the Crowned lemur, Gray mouse lemur, and Ring-tailed lemur. On the y-axis the count of the number of each species is shown. The number of lemurs ranges from just under 2500 for Crowned lemurs, to almost 12500 for Gray mouse lemurs. The number of Crowned lemurs is significantly lower than the other two species shown. The bars are coloured based on species using the Dark2 colorbrewer colour scheme."
+ggplot(lemurs, 
        aes(x = name,
            y = n,
            fill = name)) +
@@ -357,9 +370,9 @@ Colour palette packages: [github.com/EmilHvitfeldt/paletteer](https://github.com
 #| eval: true
 #| output-location: column-fragment
 #| code-line-numbers: "1,7"
-#| fig-alt: "Bar chart showing the number of lemurs for three different species with colours from the Prism palette from rcartocolor."
+#| fig-alt: "A bar chart titled Lemurs at Duke Lemur Center. On the x-axis three species of lemurs are shown including the Crowned lemur, Gray mouse lemur, and Ring-tailed lemur. On the y-axis the count of the number of each species is shown. The number of lemurs ranges from just under 2500 for Crowned lemurs, to almost 12500 for Gray mouse lemurs. The number of Crowned lemurs is significantly lower than the other two species shown. The bars are coloured based on species using the Prism palette from rcartocolor."
 library(rcartocolor)
-ggplot(data = lemurs, 
+ggplot(lemurs, 
        aes(x = name,
            y = n,
            fill = name)) +
@@ -382,8 +395,8 @@ Defining your own colours
 #| eval: true
 #| output-location: column-fragment
 #| code-line-numbers: "6,7,8,9"
-#| fig-alt: "Bar chart showing the number of lemurs for three different species with colours chosen manually."
-ggplot(data = lemurs, 
+#| fig-alt: "A bar chart titled Lemurs at Duke Lemur Center. On the x-axis three species of lemurs are shown including the Crowned lemur, Gray mouse lemur, and Ring-tailed lemur. On the y-axis the count of the number of each species is shown. The number of lemurs ranges from just under 2500 for Crowned lemurs, to almost 12500 for Gray mouse lemurs. The number of Crowned lemurs is significantly lower than the other two species shown. The bars are coloured based on species using the manual choice of colours."
+ggplot(lemurs, 
        aes(x = name,
            y = n,
            fill = name)) +
@@ -396,21 +409,19 @@ ggplot(data = lemurs,
 
 ## Are your colours accessible?
 
-```{r}
-#| echo: true
-#| eval: true
-my_colours = c("#157145", "#4C1E4F", "#DE6E4B")
-```
+* Check if the palette package has a `colorblindfriendly` argument 
 
-* {colorblindcheck}
+  * e.g. `display_carto_all(colorblind_friendly = TRUE)` from {rcartocolor}.
 
-* {colorblindr}
+* Perform your own checks...
+
 
 ## {colorblindcheck}
 
 ```{r}
 #| echo: true
 #| eval: true
+my_colours = c("#157145", "#4C1E4F", "#DE6E4B")
 colorblindcheck::palette_check(my_colours)
 ```
 
@@ -419,7 +430,7 @@ colorblindcheck::palette_check(my_colours)
 ```{r}
 #| echo: true
 #| eval: true
-g <- ggplot(data = lemurs, 
+g <- ggplot(lemurs, 
             aes(x = name,
                 y = n,
                 fill = name)) +
@@ -433,7 +444,10 @@ g <- ggplot(data = lemurs,
 ```{r}
 #| eval: true
 #| echo: false
-theme_set(theme_grey(base_size = 20) + theme(legend.position = "none"))
+theme_set(theme_grey(base_size = 20) + 
+            theme(legend.position = "none", 
+                  plot.background = element_rect(colour = "#dae5e7", fill = "#dae5e7"), 
+                  panel.background = element_rect(colour = "#dae5e7", fill = "#dae5e7")))
 ```
 
 . . .
@@ -444,7 +458,7 @@ Check it with {colorblindr}:
 #| echo: true
 #| eval: true
 #| fig-align: center
-#| fig-alt: "Grid showing how the previous bar chart looks with different types of colorblindness"
+#| fig-alt: "A 2x2 grid of 4 bar charts. Each bar chart is titled Lemurs at Duke Lemur Center. On the x-axis three species of lemurs are shown including the Crowned lemur, Gray mouse lemur, and Ring-tailed lemur. On the y-axis the count of the number of each species is shown. The number of lemurs ranges from just under 2500 for Crowned lemurs, to almost 12500 for Gray mouse lemurs. The number of Crowned lemurs is significantly lower than the other two species shown. The bars are coloured based on species using a manual choice of colours. Each bar chart in the grid shows how the colours appear under different forms of colourblindness. The graph on the top right shows that not all of the colours are distinguishable."
 #| fig-height: 7
 #| fig-width: 13
 #| output-location: slide
@@ -452,7 +466,61 @@ library(colorblindr)
 cvd_grid(g)
 ```
 
+```{r}
+#| eval: true
+#| echo: false
+theme_set(theme_grey(base_size = 40) + 
+            theme(legend.position = "none", 
+                  plot.background = element_rect(colour = "#dae5e7", fill = "#dae5e7"), 
+                  panel.background = element_rect(colour = "#dae5e7", fill = "#dae5e7")))
+```
+
+## Don't just use colours
+
+```{r}
+#| output-location: column-fragment
+#| echo: true
+#| eval: true
+#| fig-alt: "A scatter plot showing of the mtcars data set from ggplot2. On the x axis is the mpg variable, and on the y axis is the disp variable. Points are coloured and shaped by the cyl variable which takes values 4, 6, or 8. The plot does not have a title or legend. The plot demonstrates the combined use of colour and shape for better accessibility."
+ggplot(mtcars,
+       aes(x = mpg,
+           y = disp,
+           colour = factor(cyl),
+           shape = factor(cyl))) +
+  geom_point(size = 4)
+  
+```
+
+## Don't just use colours
+
+```{r}
+#| output-location: column-fragment
+#| echo: true
+#| eval: true
+#| fig-alt: "A bar chart titled Lemurs at Duke Lemur Center. On the x-axis three species of lemurs are shown including the Crowned lemur, Gray mouse lemur, and Ring-tailed lemur. On the y-axis the count of the number of each species is shown. The number of lemurs ranges from just under 2500 for Crowned lemurs, to almost 12500 for Gray mouse lemurs. The number of Crowned lemurs is significantly lower than the other two species shown. Bars are coloured by species, and bars are also filled with different patterns to highlight combined use of colour and pattern for accessibility."
+#| code-line-numbers: "1,6,7"
+library(ggpattern)
+ggplot(lemurs, 
+       aes(x = name,
+           y = n, 
+           fill = name,
+           pattern = name)) +
+  geom_col_pattern()
+```
+
 # {{< fa pencil >}} &nbsp; Alt Text {background-color="#5b868d"}
+
+## What is alt text?
+
+<br>
+
+Text providing a description of what an image contains for people who use screen readers.
+
+. . .
+
+<br> 
+
+Recent RLadies New York Talk: [https://lizharedogs.github.io/RLadiesNYAltText/#1](https://lizharedogs.github.io/RLadiesNYAltText/#1)
 
 ## How to write alt text for plots
 
@@ -461,22 +529,45 @@ cvd_grid(g)
 <small>Link: <a href="https://medium.com/nightingale/writing-alt-text-for-data-visualization-2a218ef43f81">medium.com/nightingale/writing-alt-text-for-data-visualization-2a218ef43f81</a> </small>
 </p>
 
+## An example of poor alt text
+
+```{r}
+#| echo: false
+#| eval: true
+#| fig-alt: "A bar chart titled Lemurs at Duke Lemur Center. On the x-axis three species of lemurs are shown including the Crowned lemur, Gray mouse lemur, and Ring-tailed lemur. On the y-axis the count of the number of each species is shown. The number of lemurs ranges from just under 2500 for Crowned lemurs, to almost 12500 for Gray mouse lemurs. The number of Crowned lemurs is significantly lower than the other two species shown."
+ggplot(lemurs, 
+       aes(x = name,
+           y = n,
+           fill = name)) +
+  geom_col() +
+  labs(x = "",
+       y = "Number of lemurs",
+       title = "Count of lemurs by species") 
+```
+
+[A plot of number of lemurs per species.]{.fragment}
+
+
+## An example of better alt text
+
+[A bar chart titled Lemurs at Duke Lemur Center.]{.fragment} [On the x-axis three species of lemurs are shown including the Crowned lemur, Gray mouse lemur, and Ring-tailed lemur. On the y-axis the count of the number of each species is shown.]{.fragment} [The number of lemurs ranges from just under 2500 for Crowned lemurs, to almost 12500 for Gray mouse lemurs.]{.fragment} [The number of Crowned lemurs is significantly lower than the other two species shown.]{.fragment}
+
 ## Writing alt text in {ggplot2}
 
 ```{r}
 #| eval: true
 #| echo: true
-#| code-line-numbers: "6"
-g <- ggplot(data = mtcars,
-            mapping = aes(x = mpg,
-                          y = disp)) +
-  geom_point() +
-  labs(alt = "Some of my own alt text.")
+#| code-line-numbers: "7"
+g <- ggplot(lemurs, aes(x = name, y = n, fill = name)) +
+  geom_col() +
+  labs(x = "",
+       y = "Number of lemurs",
+       title = "Lemurs at Duke Lemur Center", 
+       alt = "A bar chart titled Lemurs at Duke Lemur Center. On the x-axis three species of lemurs are shown including the Crowned lemur, Gray mouse lemur, and Ring-tailed lemur. On the y-axis the count of the number of each species is shown. The number of lemurs ranges from just under 2500 for Crowned lemurs, to almost 12500 for Gray mouse lemurs. The number of Crowned lemurs is significantly lower than the other two species shown.") 
 ```
 
 . . .
 
-<br>
 Extract the alt text:
 
 ```{r}
@@ -485,8 +576,31 @@ Extract the alt text:
 get_alt_text(g)
 ```
 
+## Alt text in R Markdown
+
+<br>
+The RMarkdown syntax:
+
+``` 
+{r, fig.alt="A bar chart titled Lemurs at Duke Lemur Center. On the x-axis three species of lemurs are shown including the Crowned lemur, Gray mouse lemur, and Ring-tailed lemur. On the y-axis the count of the number of each species is shown. The number of lemurs ranges from just under 2500 for Crowned lemurs, to almost 12500 for Gray mouse lemurs. The number of Crowned lemurs is significantly lower than the other two species shown."}
+
+```
+<br>
+
+``` 
+{r, fig.alt=ggplot2::get_alt_text(g)}
+
+```
 
 ## Alt text in Quarto 
+
+```{r}
+#| echo: fenced
+#| eval: false
+#| fig.alt: "A bar chart titled Lemurs at Duke Lemur Center. On the x-axis three species of lemurs are shown including the Crowned lemur, Gray mouse lemur, and Ring-tailed lemur. On the y-axis the count of the number of each species is shown. The number of lemurs ranges from just under 2500 for Crowned lemurs, to almost 12500 for Gray mouse lemurs. The number of Crowned lemurs is significantly lower than the other two species shown."
+#| fig-align: center
+g
+```
 
 ```{r}
 #| echo: fenced
@@ -495,75 +609,53 @@ get_alt_text(g)
 #| output-location: slide
 g
 ```
-. . .
+
+
+## Alt text in Shiny
+
+. . . 
+
+```{r}
+#| echo: true
+#| eval: false
+renderPlot({
+        <code to generate plot goes here>
+      },
+      alt = reactive({
+        <code to generate alt text dynamically goes here>
+      })
+)
+```
+
+
+## Automatically generating alt text
 
 <br>
-The RMarkdown syntax:
 
-``` 
-{r, fig.alt=ggplot2::get_alt_text(g)}
+{{< fa solid face-frown >}} Never as good as alt text written by a human
 
-```
+{{< fa solid face-frown >}} Often misses the "what's the point?" element of the plot
 
-## Something a bit experimental...
-
-```{r}
-#| eval: false
-#| echo: true
-#| code-line-numbers: false
-remotes::install_github("nrennie/ggalttext")
-```
-
-
-```{r}
-#| eval: true
-#| echo: true
-#| code-line-numbers: false
-library(ggalttext)
-```
+{{< fa solid face-meh >}} Potentially useful in interactive graphics if carefully considered
 
 ## Automatically generating alt text
 
 ```{r}
 #| eval: true
 #| echo: true
-g1 <- ggplot(data = mtcars,
-            mapping = aes(x = mpg,
-                          y = disp)) +
-  geom_point()
-generate_alt_text(g1)
-```
-
-## Automatically generating alt text
-
-```{r}
-#| eval: true
-#| echo: true
-g2 <- ggplot(data = mtcars,
-            mapping = aes(x = mpg,
-                          y = disp)) +
-  geom_point() +
-  labs(title = "My plot", 
-       subtitle = "A descriptive subtitle.", 
-       alt = "Some of my own alt text.")
-generate_alt_text(g2)
+library(BrailleR)
+VI(g)
 ```
 
 ## Automatically generating alt text
 
 ```{r}
 #| echo: fenced
-#| fig.alt: !expr ggalttext::generate_alt_text(g2)
-#| fig-align: center
-#| output-location: slide
-g2
+#| results: hide
+#| fig-alt: !expr paste(VI(g)$text, sep = " ", collapse = " ")
+g
 ```
 
-## Automatically generating alt text
-
-<p style="text-align:center;">
-<img src="images/ggalt.png" alt="Screenshot of tweet from Hadley Wickham stating better alt text for ggplot2 is being explored." width="60%">
-</p>
 
 ## Resources
 
@@ -575,7 +667,7 @@ Accessibility
 
 * [https://medium.com/nightingale/writing-alt-text-for-data-visualization-2a218ef43f81](https://medium.com/nightingale/writing-alt-text-for-data-visualization-2a218ef43f81)
 
-* [https://blog.datawrapper.de/text-in-data-visualizations/](https://blog.datawrapper.de/text-in-data-visualizations/)
+* [https://lizharedogs.github.io/RLadiesNYAltText/#1](https://lizharedogs.github.io/RLadiesNYAltText/#1)
 
 
 ## Questions?
@@ -597,7 +689,7 @@ Accessibility
 ::: {.column}
 
 <p style="text-align:center;">
-<img src="images/qr_code.png" alt="QR code going to nrennie.rbind.io" width="70%">
+<img src="images/qr_code.png" alt="QR code which takes the user to the presenters website at nrennie.rbind.io" width="70%">
 </p>
 
 :::
