@@ -1,0 +1,8 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+R-Ladies.Rproj
+!spec/*.html
+!spec/*.pdf
+RLadiesLondon/2022-10-26/slides.html

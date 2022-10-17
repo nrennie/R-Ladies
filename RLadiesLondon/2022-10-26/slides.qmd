@@ -96,7 +96,7 @@ ggplot(data = plot_df,
 <img src="https://github.com/nrennie/30daychartchallenge/blob/main/2022/viz/day_29_final.png?raw=true" width="40%" alt="A flowchart titled The Goldilocks Decision Tree. The flowchart shows the decisions made in the story of goldilocks and the three bears. The decisions included are: porridge (too hot, just right, too cold), chairs (too big, just right, too small), beds (too hard, just right, too soft). The flowchart ends with bears. A drawing of the bears and goldilocks has been added to the top-right corner, obtained from the New York Public Library. ">
 </p>
 
-## What I do at Jumping Rivers?
+## What do I do at Jumping Rivers?
 
 ::: columns
 ::: {.column width="32%"}
