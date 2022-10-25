@@ -122,6 +122,27 @@ R Community
 
 :::
 
+## Resources
+
+::: columns
+::: {.column width="60%"}
+
+Slides: [nrennie.rbind.io/talks/2022-october-rladies-london/](https://nrennie.rbind.io/talks/2022-october-rladies-london/) <br><br><br>
+
+Source code: [github.com/nrennie/R-Ladies/tree/main/RLadiesLondon/2022-10-26](https://github.com/nrennie/R-Ladies/tree/main/RLadiesLondon/2022-10-26)
+
+:::
+
+::: {.column width="40%"}
+
+<br> 
+<p style="text-align:center;">
+<img src="images/ggplot2.svg" alt="Quarto logo" width="60%">
+</p>
+
+:::
+:::
+
 ---
 
 ### Styling {ggplot2} graphics for accessibility 
@@ -475,6 +496,17 @@ theme_set(theme_grey(base_size = 40) +
                   panel.background = element_rect(colour = "#dae5e7", fill = "#dae5e7")))
 ```
 
+## Background colours
+
+```{r}
+#| echo: true
+#| eval: false
+theme(plot.background = element_rect(fill = "transparent",
+                                     colour = "transparent"),
+      panel.background = element_rect(fill = "transparent",
+                                      colour = "transparent"))
+```
+
 ## Don't just use colours
 
 ```{r}
@@ -579,7 +611,6 @@ get_alt_text(g)
 ## Alt text in R Markdown
 
 <br>
-The RMarkdown syntax:
 
 ``` 
 {r, fig.alt="A bar chart titled Lemurs at Duke Lemur Center. On the x-axis three species of lemurs are shown including the Crowned lemur, Gray mouse lemur, and Ring-tailed lemur. On the y-axis the count of the number of each species is shown. The number of lemurs ranges from just under 2500 for Crowned lemurs, to almost 12500 for Gray mouse lemurs. The number of Crowned lemurs is significantly lower than the other two species shown."}
