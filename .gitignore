@@ -3,6 +3,6 @@
 .RData
 .Ruserdata
 R-Ladies.Rproj
-!spec/*.html
-!spec/*.pdf
+*.html
+*.pdf
 RLadiesLondon/2022-10-26/slides.html
