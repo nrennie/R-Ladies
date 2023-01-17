@@ -1,0 +1,272 @@
+---
+title: "Custom colour scales for {ggplot2}"
+subtitle: "R Ladies Cambridge"
+author: "[Nicola Rennie](https://twitter.com/nrennie35)"
+format:
+  nrSlides-revealjs:
+    self-contained: true
+---
+
+## My R Journey (so far...) 
+
+```{r}
+#| eval: true
+#| echo: false
+#| fig-width: 8
+#| fig-height: 3
+#| fig-align: center
+#| fig-alt: "A stream graph showing the use of R for the author between 2014 and present day. The y-axis represents the general quantity of how often R was used, with no units. An increase is seen from 2019, and then more significantly in the last year."
+library(nrBrand)
+nrBrand::r_timeline()
+```
+
+## What do I do at Jumping Rivers?
+
+::: columns
+::: {.column width="32%"}
+<p style="text-align:center;">
+Consultancy
+<img src="images/cons.png" alt="Hex stickers for four R packages - dplyr, ggplot2, tibble, and readr." width="80%">
+</p>
+:::
+
+::: {.column width="32%" .fragment}
+<p style="text-align:center;">
+Training
+<img src="images/training.png" alt="Cartoon of a teacher at the front of a class with a board showing an R." width="80%">
+</p>
+:::
+
+::: {.column width="32%" .fragment}
+<p style="text-align:center;">
+R Community
+<img src="images/sip.png" alt="Shiny in Production conference logo of a robot holding a spanner with its left hand. The hex sticker for the Shiny R package is shown on front of the robot." width="70%">
+</p>
+:::
+
+:::
+
+```{r}
+#| echo: false
+#| eval: true
+library(ggplot2)
+lemurs <- read.csv("lemurs_small.csv")
+lemurs$name <- stringr::str_wrap(lemurs$name, width = 12)
+theme_set(theme_grey(base_size = 40) + 
+            theme(legend.position = "bottom", 
+                  legend.title = element_blank(),
+                  legend.text = element_text(lineheight = 0.6),
+                  axis.title = element_blank(),
+                  legend.background = element_rect(
+                    colour = "#eaf2f2", fill = "#eaf2f2"),
+                  plot.background = element_rect(
+                    colour = "#eaf2f2", fill = "#eaf2f2"), 
+                  panel.background = element_rect(
+                    colour = "#eaf2f2", fill = "#eaf2f2")))
+```
+
+
+## Start with the default colour scheme...
+
+```{r}
+#| output-location: slide
+#| echo: true
+ggplot(lemurs, 
+       aes(x = name,
+           y = n,
+           fill = name)) +
+  geom_col() 
+```
+
+## Let's change to a nicer palette...
+
+```{r}
+#| output-location: slide
+#| echo: true
+ggplot(lemurs, 
+       aes(x = name,
+           y = n,
+           fill = name)) +
+  geom_col() +
+  scale_fill_brewer(palette = "Dark2")
+```
+
+See [{paletteer}](https://github.com/EmilHvitfeldt/paletteer) for a collection of colour palette scales.
+
+## But that doesn't match our branding...
+
+```{r}
+#| output-location: slide
+#| echo: true
+ggplot(lemurs, 
+       aes(x = name,
+           y = n,
+           fill = name)) +
+  geom_col() +
+  scale_fill_manual(values = c("#4C1E4F", "#7D70BA", "#D35269"))
+```
+
+## Now we want to re-use these colours...
+
+...so let's make a function!
+
+First, let's define our colours in a list:
+
+```{r}
+#| echo: true
+my_colours = list(
+  my_favourite_colours = c("#4C1E4F", "#7D70BA", "#D35269")
+)
+```
+
+## Turn colours into a palette
+
+```{r}
+#| echo: true
+my_palettes = function(palette_name,
+                       n,
+                       type = c("discrete", "continuous")) {
+  palette = my_colours[[palette_name]]
+  if (missing(n)) {
+    n = length(palette)
+  }
+  type = match.arg(type)
+  out = switch(type,
+               continuous = grDevices::colorRampPalette(palette)(n),
+               discrete = palette[1:n]
+  )
+  structure(out, palette_name = palette_name, class = "palette")
+}
+```
+
+## Make some scale functions
+
+Discrete scales
+
+```{r}
+#| echo: true
+scale_colour_mycols_d = function(palette_name, ...) {
+  ggplot2::scale_colour_manual(
+    values = my_palettes(palette_name, type = "discrete"), ...)
+}
+
+scale_fill_mycols_d = function(palette_name, ...) {
+  ggplot2::scale_fill_manual(
+    values = my_palettes(palette_name, type = "discrete"), ...)
+}
+```
+
+## Make some scale functions
+
+Continuous scales
+
+```{r}
+#| echo: true
+scale_colour_mycols_c = function(palette_name, ...) {
+  ggplot2::scale_colour_gradientn(
+    colours = my_palettes(palette_name, type = "continuous"), ...)
+}
+
+scale_fill_mycols_c = function(palette_name, ...) {
+  ggplot2::scale_fill_gradientn(
+    colours = my_palettes(palette_name, type = "continuous"), ...)
+}
+```
+
+## Make some scale functions
+
+```{r}
+#| echo: true
+scale_color_mycols_d <- scale_colour_mycols_d
+scale_color_mycols_c <- scale_colour_mycols_c
+```
+
+## See it in action
+
+```{r}
+#| output-location: slide
+#| echo: true
+ggplot(lemurs, 
+       aes(x = name,
+           y = n,
+           fill = name)) +
+  geom_col() +
+  scale_fill_mycols_d("my_favourite_colours")
+```
+
+## See it in action
+
+```{r}
+#| output-location: slide
+#| echo: true
+ggplot(lemurs, 
+       aes(x = name,
+           y = n,
+           fill = n)) +
+  geom_col() +
+  scale_fill_mycols_c("my_favourite_colours", 
+                      limits = c(0, 12500),
+                      breaks = c(0, 12500))
+```
+
+## What to do next?
+
+::: {.incremental}
+
+* Define a `print()` method: [adv-r.hadley.nz/s3](https://adv-r.hadley.nz/s3.html)
+
+* Make an R package: [r-pkgs.org](https://r-pkgs.org/)
+
+* Check for colourblind friendliness: [{colorblindcheck}](https://github.com/Nowosad/colorblindcheck)
+
+* Make some matching theme functions: [bookdown.org/rdpeng/RProgDA/building-a-new-theme](https://bookdown.org/rdpeng/RProgDA/building-a-new-theme.html)
+
+:::
+
+## Slides
+
+::: columns
+::: {.column width="60%"}
+
+Slides: [nrennie.rbind.io/talks/2023-march-rladies-cambridge](https://nrennie.rbind.io/talks/2023-march-rladies-cambridge/) <br><br><br>
+
+Source code: [github.com/nrennie/R-Ladies/tree/main/RLadiesCambridge/2023-03-23](https://github.com/nrennie/R-Ladies/tree/main/RLadiesCambridge/2023-03-2)
+
+:::
+
+::: {.column width="40%"}
+
+<br> 
+<p style="text-align:center;">
+<img src="images/ggplot2.svg" alt="ggplot2 hex logo" width="60%">
+</p>
+
+:::
+:::
+
+
+## Questions?
+
+::: columns
+::: {.column}
+
+<br>
+
+{{< fa brands twitter >}} [@nrennie35](https://twitter.com/nrennie35)
+
+{{< fa brands github >}} [nrennie](https://github.com/nrennie)
+
+{{< fa globe >}} [nrennie.rbind.io](nrennie.rbind.io/)
+
+{{< fa briefcase >}} [jumpingrivers.com](https://www.jumpingrivers.com/)
+
+:::
+::: {.column}
+
+<p style="text-align:center;">
+<img src="images/qr_code.png" alt="QR code which takes the user to the presenters website at nrennie.rbind.io" width="70%">
+</p>
+
+:::
+:::
+
