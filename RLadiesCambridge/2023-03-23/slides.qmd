@@ -228,7 +228,7 @@ ggplot(lemurs,
 ::: columns
 ::: {.column width="60%"}
 
-Slides: [nrennie.rbind.io/talks/2023-march-rladies-cambridge](https://nrennie.rbind.io/talks/2023-march-rladies-cambridge/) <br><br><br>
+Slides: [nrennie.rbind.io/talks/rladies-cambridge-ggplot2-colours](https://nrennie.rbind.io/talks/rladies-cambridge-ggplot2-colours/) <br><br><br>
 
 Source code: [github.com/nrennie/R-Ladies/tree/main/RLadiesCambridge/2023-03-23](https://github.com/nrennie/R-Ladies/tree/main/RLadiesCambridge/2023-03-2)
 
