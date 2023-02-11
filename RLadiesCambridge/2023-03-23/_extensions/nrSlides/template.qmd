@@ -1,10 +1,10 @@
 ---
 title: "Quarto Presentation Theme"
 subtitle: "A template file for Quarto revealjs slides"
-author: "[Nicola Rennie](https://twitter.com/nrennie35)"
+author: "[Nicola Rennie](https://nrennie.rbind.io/)"
 format:
   nrSlides-revealjs:
-    self-contained: true
+    embed-resources: true
 ---
 
 ## Quarto

@@ -1,9 +1,10 @@
 ---
 title: "Custom colour scales for {ggplot2}"
 subtitle: "R Ladies Cambridge"
-author: "[Nicola Rennie](https://twitter.com/nrennie35)"
+author: "[Nicola Rennie](https://nrennie.rbind.io/)"
 format:
   nrSlides-revealjs:
+    embed-resources: true
     self-contained: true
 ---
 
@@ -58,11 +59,11 @@ theme_set(theme_grey(base_size = 40) +
                   legend.text = element_text(lineheight = 0.6),
                   axis.title = element_blank(),
                   legend.background = element_rect(
-                    colour = "#eaf2f2", fill = "#eaf2f2"),
+                    colour = "#F0F5F5", fill = "#F0F5F5"),
                   plot.background = element_rect(
-                    colour = "#eaf2f2", fill = "#eaf2f2"), 
+                    colour = "#F0F5F5", fill = "#F0F5F5"), 
                   panel.background = element_rect(
-                    colour = "#eaf2f2", fill = "#eaf2f2")))
+                    colour = "#F0F5F5", fill = "#F0F5F5")))
 ```
 
 
