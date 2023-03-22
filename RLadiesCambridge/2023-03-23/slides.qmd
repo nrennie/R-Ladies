@@ -1,7 +1,7 @@
 ---
 title: "Custom colour scales for {ggplot2}"
 subtitle: ""
-author: "R Ladies Cambridge | 23rd March 2023"
+author: "R-Ladies Cambridge | 23rd March 2023"
 footer: "Slides: nrennie.rbind.io/talks/rladies-cambridge-ggplot2-colours"
 format:
   nrSlides-revealjs:
@@ -281,6 +281,8 @@ theme_set(theme_grey(base_size = 40) +
 
 * Vary the luminosity of the colours
 
+* Check palettes for different chart types: [{plotcolr}](https://github.com/thedatacollective/plotcolr)
+
 * Don't rely on colour: [{ggpattern}](https://coolbutuseless.github.io/package/ggpattern/)
 
 :::
@@ -305,19 +307,9 @@ ggplot(lemurs,
 :::
 :::
 
-## Checking contrast
-
-As well as checking colours are distinguishable from each other, we should also check they're distinct from the background.
-
-* [webaim.org/resources/contrastchecker](https://webaim.org/resources/contrastchecker/)
-
-* [coolors.co/contrast-checker](https://coolors.co/contrast-checker/112a46-acc8e5)
-
-* [{savonliquide}](https://github.com/feddelegrand7/savonliquide)
-
 # Custom<br>colour<br>scales {background-image="images/lemur_bg.png" width="50%"}
 
-## Now we want to re-use these colours...
+## Now we want to re-use our colours...
 
 ...so let's make a function!
 
