@@ -1,0 +1,642 @@
+---
+title: "Creating your data science portfolio"
+subtitle: "R Ladies Gaborone & Botswana R Users"
+author: "[Nicola Rennie](https://nrennie.rbind.io/)"
+format:
+  nrSlides-revealjs:
+    embed-resources: true
+    self-contained: true
+    footer: "<span style='font-family:\"Font Awesome 6 Brands\";color:#508080;'>&#xf099;</span><span style='color:#F0F5F5;'> </span><span style='font-family:Commissioner;color:#508080;'>@nrennie35</span><span style='color:#F0F5F5;'> </span><span style='font-family:\"Font Awesome 6 Brands\";color:#508080;'>&#xf4f6;</span><span style='color:#F0F5F5;'> </span><span style='font-family:Commissioner;color:#508080;'>fosstodon.org/@nrennie</span><span style='color:#F0F5F5;'> </span><span style='font-family:\"Font Awesome 6 Brands\";color:#508080;'>&#xf09b;</span><span style='color:#F0F5F5;'> </span><span style='font-family:Commissioner;color:#508080;'>nrennie</span><span style='color:#F0F5F5;'> </span>"
+---
+
+## 👩 Nicola Rennie
+
+```{r}
+#| eval: true
+#| echo: false
+#| fig-align: center
+#| fig-alt: "A lollipop chart with each point showing a different stage of the author's career."
+library(nrBrand)
+nrBrand::timeline_plot()
+```
+
+# Data science portfolios {background-color="#2F4F4F"}
+
+## Why build a data science portfolio?
+
+::: {.incremental}
+
+* Extend your CV <br>
+
+* Personal projects are evidence of skills developed in confidential projects <br>
+
+* Showcase projects *you* have designed and enjoy <br>
+
+* For your own reference <br>
+
+:::
+
+## What could a data science portfolio include?
+
+. . . 
+
+<br> <br>
+
+It depends.
+
+## What could a data science portfolio include?
+
+::: columns
+
+::: {.column}
+
+<br> 
+
+* Highlight 3-5 projects
+
+* Show the process
+
+* Share code and outputs
+
+:::
+
+::: {.column}
+
+<p style="text-align:center;">
+<img src="images/sketch.gif" alt="Gif of dashboard sketch" width="70%"><br>
+<small>Image: <a href="https://giphy.com/gifs/sketch-mockups-wireflow-1k889fiqiZV19HO2sx">giphy.com</a></small>
+</p>
+
+:::
+
+:::
+
+## Where could I keep my portfolio?
+
+::: columns
+
+::: {.column}
+
+* Public git repository (e.g. GitHub)
+
+* Website
+  * Built with:
+    * Quarto, Hugo, ...
+  * Hosted on:
+    * GitHub Pages, Quarto Pub, Netlify...
+    
+:::
+
+::: {.column}
+
+<p style="text-align:center;">
+<img src="images/github.png" alt="GitHub logo" width="50%">
+</p>
+
+:::
+
+:::
+
+## How do I create a data science project?
+
+<br>
+
+::: {incremental}
+
+* Get some data <br>
+* Do something to it
+  * Data wrangling
+  * Visualisation
+  * Modelling <br>
+* Write about it <br>
+
+:::
+
+## Where do I find data?
+
+<br> 
+
+* [github.com/awesomedata/awesome-public-datasets](https://github.com/awesomedata/awesome-public-datasets) <br> 
+
+* [#TidyTuesday](https://github.com/rfordatascience/tidytuesday) <br> 
+
+* [#30DayChartChallenge](https://30daychartchallenge.org/) / [#30DayMapChallenge](https://30daymapchallenge.com/) <br> 
+
+* [#DuBoisChallenge](https://github.com/ajstarks/dubois-data-portraits) 
+
+## Getting started with #TidyTuesday
+
+::: columns
+
+::: {.column}
+
+<br>
+
+* #TidyTuesday is a weekly data project aimed at the R community.
+* GitHub repository: [github.com/rfordatascience/tidytuesday](https://github.com/rfordatascience/tidytuesday)
+
+:::
+
+::: {.column}
+
+<br>
+<p style="text-align:center;">
+<img src="images/r4ds.png" alt="R4DS logo" width="70%">
+</p>
+
+:::
+
+:::
+
+## How did I start my portfolio?
+
+::: columns
+
+::: {.column width="60%"}
+
+* #TidyTuesday
+* GitHub: [github.com/nrennie/tidytuesday](https://github.com/nrennie/tidytuesday) <br>
+
+* Twitter: [twitter.com/nrennie35](https://twitter.com/nrennie35) <br>
+
+* Website: [nrennie.rbind.io/portfolio/tidytuesday](https://nrennie.rbind.io/portfolio/tidytuesday/) <br>
+
+* Blog: [nrennie.rbind.io/blog](https://nrennie.rbind.io/blog/)
+
+:::
+
+::: {.column width="40%"}
+
+<p style="text-align:center;">
+<img src="images/tt1.jpg" alt="TidyTuesday graphic on transit infrastructure costs" width="70%">
+</p>
+
+:::
+
+:::
+
+
+# A #TidyTuesday Example {background-color="#2F4F4F"}
+
+## Making a GitHub repository
+
+::: columns
+
+::: {.column}
+
+[github.com/join](https://github.com/join)
+
+<p style="text-align:center;">
+<img src="images/github-join.png" alt="Github join page screenshot" width=80%">
+</p>
+
+:::
+
+::: {.column .fragment}
+
+<br>
+
+<p style="text-align:center;">
+<img src="images/github-new.png" alt="Github repository tab screenshot" width="80%">
+</p>
+
+:::
+
+:::
+
+## Making a GitHub repository
+
+::: columns
+
+::: {.column}
+
+* Create a new repository 
+
+* Fill in project details 
+
+* Add a README file 
+
+<p style="text-align:center;">
+<img src="images/github-repo.png" alt="Github new repository screenshot" width="60%">
+</p>
+
+:::
+
+::: {.column .fragment}
+
+* File -> New Project
+
+* Create project from Version control
+
+* Clone a project from a Git repository
+
+<p style="text-align:center;">
+<img src="images/clone-from-git.png" alt="Github clone process in RStudio" width="60%">
+</p>
+
+:::
+
+:::
+
+Git help: [happygitwithr.com](https://happygitwithr.com/)
+
+# Live Coding! {background-color="#2F4F4F"}
+
+## Create a file
+
+* .R file
+
+* .Rmd file
+
+* .qmd file
+
+. . . 
+
+<br>
+
+```yaml
+---
+title: "#TidyTuesday"
+author: Nicola Rennie
+format: html
+---
+```
+
+## Load the data
+
+Data: [github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-02-07/readme.md](https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-02-07/readme.md)
+
+```{r}
+#| echo: true
+#| eval: true
+big_tech_stock_prices <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-02-07/big_tech_stock_prices.csv")
+```
+
+or 
+
+```{r}
+#| echo: true
+#| eval: false
+tuesdata <- tidytuesdayR::tt_load("2023-02-07")
+big_tech_stock_prices <- tuesdata$big_tech_stock_prices
+```
+
+or
+
+```{r}
+#| echo: true
+#| eval: false
+tuesdata <- tidytuesdayR::tt_load(2023, week = 6)
+big_tech_stock_prices <- tuesdata$big_tech_stock_prices
+```
+
+## Initial exploration
+
+View the column names:
+
+```{r}
+#| echo: true
+#| eval: true
+colnames(big_tech_stock_prices)
+```
+
+<br>
+
+Read the data dictionary: [github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-02-07/readme.md](https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-02-07/readme.md)
+
+## Choosing an approach
+
+* Which aspects of the data do you want to show?
+  * How have values changed over time?
+  * How do different companies compare?
+
+. . . 
+
+* What things do you want to learn?
+  * {ggsankey}
+  * Working with icons in fonts
+
+## Data wrangling
+
+```{r}
+#| echo: true
+#| eval: true
+#| message: false
+library(tidyverse)
+library(lubridate)
+plot_data <- big_tech_stock_prices |> 
+  mutate(year = year(date)) |> 
+  group_by(stock_symbol, year) |> 
+  summarise(open = mean(open, na.rm = TRUE)) |> 
+  ungroup() |> 
+  filter(year <= 2022)
+```
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+head(plot_data)
+```
+
+## Initial plots
+
+```{r}
+#| echo: true
+#| eval: true
+#| fig-width: 7
+#| fig-height: 6
+#| message: false
+#| output-location: column
+ggplot(plot_data,
+       aes(x = year,
+           y = open)) +
+  geom_col()
+```
+
+## Initial plots
+
+```{r}
+#| echo: true
+#| eval: true
+#| fig-width: 7
+#| fig-height: 6
+#| message: false
+#| output-location: column
+ggplot(plot_data,
+       aes(x = year,
+           y = open,
+           fill = stock_symbol)) +
+  geom_col()
+```
+
+## Initial plots
+
+```{r}
+#| echo: true
+#| eval: true
+#| fig-width: 7
+#| fig-height: 6
+#| message: false
+#| output-location: column
+ggplot(plot_data,
+       aes(x = year,
+           y = open,
+           colour = stock_symbol)) +
+  geom_line() +
+  geom_point()
+```
+
+## Choosing an idea
+
+```{r}
+#| echo: true
+#| eval: true
+#| fig-width: 7
+#| fig-height: 6
+#| message: false
+#| warning: false
+#| output-location: column
+library(ggsankey)
+ggplot(plot_data,
+       aes(x = year,
+           value = open,
+           node = stock_symbol,
+           fill = stock_symbol)) +
+  geom_sankey_bump()
+```
+
+## Refining your plot
+
+```{r}
+#| echo: true
+#| eval: true
+#| fig-width: 7
+#| fig-height: 6
+#| message: false
+#| warning: false
+#| output-location: column
+ggplot(plot_data,
+       aes(x = year,
+           value = open,
+           node = stock_symbol,
+           fill = stock_symbol)) +
+  geom_sankey_bump(space = 1,
+                   colour = "transparent",
+                   smooth = 6,
+                   alpha = 0.8)
+```
+
+## Refining your plot
+
+```{r}
+#| echo: true
+#| eval: true
+#| fig-width: 7
+#| fig-height: 6
+#| message: false
+#| warning: false
+#| output-location: column
+ggplot(plot_data,
+       aes(x = year,
+           value = open,
+           node = stock_symbol,
+           fill = (stock_symbol == "ADBE"))) +
+  geom_sankey_bump(space = 1,
+                   colour = "transparent",
+                   smooth = 6,
+                   alpha = 0.8) +
+  scale_fill_manual(
+    values = c("grey", "#fb0f01")
+    )
+```
+
+* [{eyedroppeR}](https://github.com/doehm/eyedroppeR): select colours from an image in R 
+
+## Refining your plot
+
+```{r}
+#| echo: true
+#| eval: true
+#| fig-width: 7
+#| fig-height: 6
+#| message: false
+#| warning: false
+#| output-location: column
+g <- ggplot(plot_data,
+       aes(x = year,
+           value = open,
+           node = stock_symbol,
+           fill = (stock_symbol == "ADBE"))) +
+  geom_sankey_bump(space = 1,
+                   colour = "transparent",
+                   smooth = 6,
+                   alpha = 0.8) +
+  scale_fill_manual(
+    values = c("grey", "#fb0f01")
+    ) +
+  scale_x_continuous(
+    breaks = seq(2010, 2022, 2)
+    ) +
+  theme_minimal()
+g
+```
+
+## Refining your plot
+
+```{r}
+#| echo: true
+#| eval: true
+#| fig-width: 7
+#| fig-height: 6
+#| message: false
+#| warning: false
+#| output-location: column
+st <- "In 2022, of 14 tech companies considered, 
+Adobe Inc. had the highest average daily stock 
+price when the markets opened, after overtaking 
+Netflix in 2021. Data: Yahoo Finance"
+g <- g +
+  labs(title = "The Rise of Adobe Inc.",
+       subtitle = str_wrap(st, 80)) 
+g
+```
+
+## Refining your plot
+
+```{r}
+#| echo: true
+#| eval: true
+#| fig-width: 7
+#| fig-height: 6
+#| message: false
+#| warning: false
+#| output-location: column
+g +
+  theme(text = element_text(colour = "#546666"),
+        plot.margin = margin(
+          10, 10, 10, 20
+          ),
+        # title and subtitle
+        plot.title = element_text(
+          size = 20,
+          colour = "#2F4F4F"
+          ),
+        plot.subtitle = element_text(
+          size = 16,
+          lineheight = 0.4,
+          hjust = 0
+          ),
+        plot.title.position = "plot",
+        # axes 
+        axis.text.y = element_blank(),
+        axis.text.x = element_text(
+          size = 16,
+          vjust = 2
+          ),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        # other elements
+        legend.position = "none",
+        panel.grid.minor = element_blank(),
+        panel.grid.major.y= element_blank())
+```
+
+## The final plot
+
+<p style="text-align:center;">
+<img src="images/20230207.png" alt="A sankey chart showing the changing rank of 14 tech companies changing between 2010 and 2022, with rank defined by opening stock price. 13 of the companies are shown in shades of grey, whilst Adobe is shown in red, with Adobe coming into the top spot in 2021." width="45%">
+</p>
+
+## The rest of the process...
+
+* {showtext} for Google Fonts and Icons
+* {ggtext} to add markdown 
+* More colours
+* Segments for lines
+
+Full code: [github.com/nrennie/tidytuesday/tree/main/2023/2023-02-07](https://github.com/nrennie/tidytuesday/tree/main/2023/2023-02-07)
+
+# Sharing your work {background-color="#2F4F4F"}
+
+## Push your code
+
+<p style="text-align:center;">
+<img src="images/git-push.png" alt="Git interface in RStudio GUI screenshot" width="55%">
+</p>
+
+## Publish your work
+
+<br>
+
+* README.md file in the git repository <br>
+* GitHub Pages, Quarto Pub, ... <br>
+* Twitter
+
+. . . 
+
+Quarto publishing: <br>
+
+```bash
+quarto publish big_tech.qmd
+```
+
+## Key points
+
+<br>
+
+* Data science portfolios should highlight projects you enjoy <br>
+
+* Include textual descriptions of what you did <br>
+
+* #TidyTuesday is a beginner-friendly way to get started 
+
+## Slides
+
+::: columns
+::: {.column width="60%"}
+
+Slides: [nrennie.rbind.io/talks/rladies-gaborone-data-science-portfolio](https://nrennie.rbind.io/talks/rladies-gaborone-data-science-portfolio/) <br><br>
+
+Source code: [github.com/nrennie/R-Ladies/tree/main/RLadiesGaborone/2023-03-29](https://github.com/nrennie/R-Ladies/tree/main/RLadiesGaborone/2023-03-29) <br><br>
+
+GitHub: [github.com/nrennie/botswana-tidytuesday-portfolio](https://github.com/nrennie/botswana-tidytuesday-portfolio)
+
+:::
+
+::: {.column width="40%"}
+
+<br> 
+<p style="text-align:center;">
+<img src="images/rlogo.png" alt="r logo" width="60%">
+</p>
+
+:::
+:::
+
+
+## Questions?
+
+::: columns
+::: {.column}
+
+<br>
+
+{{< fa globe >}} [nrennie.rbind.io](https://nrennie.rbind.io/)
+
+{{< fa brands github >}} [nrennie](https://github.com/nrennie)
+
+{{< fa brands twitter >}} [@nrennie35](https://twitter.com/nrennie35)
+
+{{< fa brands mastodon >}} [fosstodon.org/@nrennie](https://fosstodon.org/@nrennie)
+
+:::
+::: {.column}
+
+<p style="text-align:center;">
+<img src="images/qr_code.png" alt="QR code which takes the user to the presenters website at nrennie.rbind.io" width="70%">
+</p>
+
+:::
+:::
+
