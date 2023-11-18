@@ -4,6 +4,7 @@ subtitle: "A local chapter of R-Ladies Global"
 author: ""
 format: 
   rladies-revealjs:
+    self-contained: true
     footer: "[R-Ladies](https://rladies.org/) theme for [Quarto Presentations](https://quarto.org/docs/presentations/revealjs/index.html). Code available on [GitHub](https://github.com/beatrizmilz/quarto-rladies-theme)."
 ---
 
