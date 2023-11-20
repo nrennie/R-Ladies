@@ -123,7 +123,7 @@ Help yourself to pizza and drinks!
 ::: columns
 ::: {.column width="50%" .center}
 
-![](images/meetup.png){fig-align="center" fig-alt="Meetup screenshot" width=70%}
+![](images/meetup.png){fig-align="center" fig-alt="Meetup screenshot" width=95%}
 
 :::
 
