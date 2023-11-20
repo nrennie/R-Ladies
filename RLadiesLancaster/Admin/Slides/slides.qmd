@@ -4,46 +4,137 @@ subtitle: "A local chapter of R-Ladies Global"
 author: ""
 format: 
   rladies-revealjs:
+    self-contained: true
     footer: "[meetup.com/rladies-lancaster](https://www.meetup.com/rladies-lancaster/)"
 ---
 
 ## What is R-Ladies?
 
-## Housekeeping
+::: columns
+::: {.column width="65%"}
 
-* Fires
+R-Ladies is a worldwide organisation whose mission is to promote gender diversity in the R community.
 
-* Parking
+The R community suffers from an under-representation of minority genders in every role and area of participation.
 
-* Food and drink
+The primary focus is on supporting minority gender R enthusiasts to achieve their programming potential, by building a collaborative global network.
 
-* Be nice
+:::
+
+::: {.column width="35%" .center}
+
+![](images/rladies-logo.png){fig-align="center" fig-alt="R Ladies logo" width=70%}
+
+:::
+
+:::
+
+## Code of Conduct
+
+R-Ladies has a code of conduct all attendees are expected to follow: [rladies.org/coc](https://rladies.org/coc/). This code of conduct applies to all R-Ladies spaces, including meetups, Twitter, Slack, mailing lists, both online and offline. 
+
+R-Ladies is dedicated to providing a harassment-free experience for everyone. We do not tolerate harassment of participants in any form.
+
+R-Ladies prioritizes marginalized people’s safety over privileged people’s comfort.
+
+**Reporting**
+
+* Chapter organiser: Nicola Rennie
+
+* Global Leadership Team: [reporting@rladies.org](mailto:reporting@rladies.org)
+
+## Photography
+
+![](images/photos.gif){fig-align="center" fig-alt="Mr Bean gif of taking photos" width=70%}
+
+## Parking
+
+![](images/parking.jpg){fig-align="center" fig-alt="Parking icon" width=70%}
+
+## Fire drill
+
+![](images/fire.gif){fig-align="center" fig-alt="Fire gif" width=70%}
+
+
+## Food and drink
+
+::: columns
+::: {.column width="50%" .center}
+
+![](images/pizza.jpg){fig-align="center" fig-alt="Photograph of pizza" width=70%}
+
+:::
+
+::: {.column width="50%"}
+
+Help yourself to pizza and drinks!
+
+:::
+
+:::
+
 
 ## Sponsors
 
-* Fraser House Hub
+::: columns
+::: {.column width="50%" .center}
 
-* DSI
+<br>
 
-## Organising team
+![](images/fraserhouse.png){fig-align="center" fig-alt="Fraser House Hub logo" width=70%}
 
-## Contribute
+:::
 
-* Talk
+::: {.column width="50%" .center}
 
-* Suggest speakers/topics
+<br>
 
-* Tell us what type of events
+![](images/LUDataScienceInstitute.png){fig-align="center" fig-alt="Data Science Institute logo" width=70%}
+
+:::
+
+:::
+
+
+## Contribute to R-Ladies Lancaster!
+
+::: columns
+::: {.column width="50%" .center}
+
+![](images/r-ladies-lancs-logo.png){fig-align="center" fig-alt="R-Ladies Lancaster logo" width=70%}
+
+:::
+
+::: {.column width="50%"}
+
+* Volunteer to deliver a talk
+
+* Suggest speakers or topics you want to hear from
+
+* Tell us about what type of events you'd like!
+
+:::
+
+:::
+
 
 ## Where to find us
 
-* LinkedIn
+::: columns
+::: {.column width="50%" .center}
 
-* Twitter
+![](images/meetup.png){fig-align="center" fig-alt="Meetup screenshot" width=70%}
 
-* Meetup
+:::
 
-# New topic! {background-color="#562457"}
+::: {.column width="50%"}
 
+* LinkedIn: [linkedin.com/company/r-ladies-lancaster](https://www.linkedin.com/company/r-ladies-lancaster/)
 
+* Twitter: [twitter.com/RLadiesLancs](https://twitter.com/RLadiesLancs)
 
+* Meetup: [meetup.com/rladies-lancaster](https://www.meetup.com/rladies-lancaster/)
+
+:::
+
+:::
