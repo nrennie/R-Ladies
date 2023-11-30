@@ -1,3 +1,498 @@
 ---
-format: revealjs
+title: "Introduction to reproducible reporting with Quarto"
+subtitle: "R-Ladies Edinburgh<br><small>11 December 2023</small>"
+author: "Nicola Rennie"
+format:
+  LUstyle-revealjs:
+    self-contained: true
+    footer: "{{< fa envelope >}} [n.rennie@lancaster.ac.uk](mailto:n.rennie@lancaster.ac.uk) {{< fa globe >}} [nrennie.rbind.io](https://nrennie.rbind.io/) {{< fa brands linkedin >}} [nicola-rennie](https://www.linkedin.com/in/nicola-rennie/)<br>[nrennie.rbind.io/talks/rladies-edinburgh-quarto](https://nrennie.rbind.io/talks/rladies-edinburgh-quarto/)"
 ---
+
+## About me
+
+::: columns
+::: {.column .right}
+
+Lecturer in Health Data Science at [Lancaster University](https://chicas.lancaster-university.uk/).
+
+<br>
+
+Academic background in statistics, and experience in data science consultancy.
+
+<br>
+
+Organiser of R-Ladies Lancaster.
+
+:::
+
+::: {.column}
+
+![](images/lancs.jpg){fig-align="center" fig-alt="photo of lancaster castle and canal" width=80%}
+
+:::
+:::
+
+
+# What is Quarto? {background-color="#D9DBDB"}
+
+## What is Quarto?
+
+Quarto is an open-source scientific and technical publishing system [that allows you to combine text, images, code, plots, and tables in a fully-reproducible document.]{.fragment} [Quarto has support for multiple languages including R, Python, Julia, and Observable.]{.fragment} [It also works for a range of output formats such as PDFs, HTML documents, websites, presentations,...]{.fragment}
+
+. . . 
+
+<br>
+
+That sounds a bit like R Markdown!
+
+## What about R Markdown?
+
+R Markdown isn't going anywhere but...
+
+* Quarto has better multi-language support
+
+* More user-friendly
+
+* Better control of the output layouts
+
+# Simple documents {background-color="#D9DBDB"}
+
+## Creating a document
+
+<p style="text-align:center;">
+<img src="images/new_doc.gif" alt="Gif of creating a new quarto document" width="50%">
+</p>
+
+## Rendering a document
+
+Within RStudio IDE: click **Render** (or Ctrl+Shift+K)
+
+. . . 
+
+<br>
+
+Using {quarto}
+
+```{r}
+#| eval: false
+#| echo: true
+library(quarto)
+quarto_render("document.qmd")
+```
+
+. . .
+
+<br>
+
+Using the command line
+
+``` bash
+quarto render document.qmd
+```
+
+## What makes a Quarto document?
+
+YAML header
+
+``` yaml
+---
+title: "A very cool title"
+format: html
+---
+```
+
+. . . 
+
+Content
+
+* Text, links, images
+
+* Code, tables, plots
+
+* Equations, references
+
+
+## Output types
+
+::: {.incremental}
+
+* Documents: HTML, PDF, MS Word, Markdown
+
+* Presentations: Revealjs, PowerPoint, Beamer
+
+* Websites
+
+* Books
+
+* ...
+
+:::
+
+# Code block options {background-color="#D9DBDB"}
+
+## Quarto vs R Markdown
+
+```{r}
+#| echo: fenced
+#| eval: false
+#| warning: false
+2 + 2
+```
+
+. . . 
+
+<br>
+
+Comparing to R Markdown: 
+
+````
+```{{r, warning=FALSE, eval=FALSE}}
+2 + 2
+```
+
+````
+
+. . . 
+
+<br>
+```{r}
+#| echo: true
+#| eval: false
+knitr::convert_chunk_header("document.qmd", output = identity)
+```
+
+## Code block options
+
+Code visibility options:
+
+* Hide the code
+```yaml
+#| echo: false
+```
+* Show the code
+```yaml
+#| echo: true
+```
+* Show the code and the YAML
+```yaml
+#| echo: fenced
+```
+
+## Code block options
+
+````
+
+```{{r}}
+#| echo: fenced
+#| eval: true
+#| warning: false
+#| error: false
+#| output: asis
+#| include: true
+```
+
+````
+
+## Code block options
+
+Figure options:
+
+```{r}
+#| eval: true
+#| echo: false
+library(ggplot2)
+theme_set(theme_grey(base_size = 40) +
+  theme(
+    legend.position = "none",
+    axis.title = element_blank(),
+    plot.background = element_rect(colour = "#ffffff", fill = "#ffffff"),
+    panel.background = element_rect(colour = "#ffffff", fill = "#ffffff")
+  ))
+```
+
+```{r}
+#| echo: false
+#| eval: true
+lemurs <- read.csv("lemurs_small.csv")
+lemurs$name <- stringr::str_wrap(lemurs$name, width = 12)
+library(ggplot2)
+```
+
+```{r}
+#| echo: fenced
+#| fig-alt: "Bar chart showing the number of lemurs for three different species"
+#| fig-height: 7
+#| fig-width: 10
+#| fig-align: center
+#| output-location: slide
+g <- ggplot(
+  data = lemurs,
+  aes(x = name, y = n, fill = name)
+) +
+  geom_col()
+g
+```
+
+## Code block options
+
+Output location: 
+
+```{r}
+#| echo: fenced
+#| output-location: column
+g
+```
+
+## Code block options
+
+Highlight code:
+
+```{r}
+#| echo: fenced
+#| eval: false
+#| code-line-numbers: "3"
+ggplot(
+  data = lemurs,
+  aes(x = name, y = n, fill = name)
+) +
+  geom_col()
+```
+
+
+## Global code block options
+
+::: columns
+::: {.column}
+
+RMarkdown
+
+````
+```{{r}}
+knitr::opts_chunk$set(echo = FALSE)
+```
+````
+
+:::
+::: {.column}
+
+Quarto
+
+``` yaml
+---
+title: "A very cool title"
+format: html
+execute:
+  echo: false
+---
+```
+
+:::
+:::
+
+## Inline code
+
+We can also include code inline, rather than as a separate chunk.
+
+::: {.callout-note appearance="minimal"}
+The total number of lemurs is `` `r "\u0060r sum(lemurs$n)\u0060"` ``.
+:::
+
+The total number of lemurs is `r sum(lemurs$n)`.
+
+# These are a few of my favourite things (about Quarto) {background-color="#D9DBDB"}
+
+## Predictive YAML (and code block options)
+
+<p style="text-align:center;">
+<img src="images/yaml.gif" alt="Gif of predictive yaml in a quarto document" width="50%">
+</p>
+
+
+## Quarto extensions (e.g. journal article templates)
+
+Templates: [github.com/quarto-journals](https://github.com/quarto-journals)
+
+. . . 
+
+``` yaml
+---
+title: "A very cool title"
+format:
+  pdf: default
+  jss-pdf:
+    keep-tex: true 
+---
+```
+
+## Writing LaTeX
+
+````
+---
+title: "A very cool title"
+format: html
+---
+
+\begin{equation}
+\hat{e}_i = Y_i - \hat{Y}_i
+\end{equation}
+
+````
+. . .
+
+\begin{equation}
+\hat{e}_i = Y_i - \hat{Y}_i
+\end{equation}
+
+
+## Multiple columns
+
+````
+
+::: .columns
+::: {.column width = "60%"}
+The content for the first column goes here.
+:::
+
+::: {.column width = "40%"}
+The content for the second column goes here.
+:::
+:::
+
+
+````
+
+
+## Code animation {auto-animate="true"}
+
+```r
+g <- ggplot(data = lemurs, 
+            aes(x = name, y = n, fill = name)) +
+  geom_col()
+```
+
+## Code animation {auto-animate=true}
+
+```r
+g <- ggplot(data = lemurs, 
+            aes(x = name, y = n, fill = name)) +
+  geom_col() +
+  scale_fill_brewer(palette = "Dark2")
+```
+
+## Diagrams
+
+````
+```{dot}
+graph G {
+  qmd -- Knitr;
+  qmd -- Jupyter;
+  Knitr -- md;
+  Jupyter -- md;
+  md -- pandoc;
+  pandoc -- HTML;
+  pandoc -- PDF;
+  pandoc -- Word;
+  pandoc -- more;
+}
+```
+````
+## Diagrams
+
+```{dot}
+//| fig-align: center
+//| fig-height: 5
+graph G {
+  bgcolor="#ffffff"
+  qmd -- Knitr;
+  qmd -- Jupyter;
+  Knitr -- md;
+  Jupyter -- md;
+  md -- pandoc;
+  pandoc -- HTML;
+  pandoc -- PDF;
+  pandoc -- Word;
+  pandoc -- more;
+}
+```
+
+## Parameterised documents
+
+``` yaml
+---
+title: "A very cool title"
+format: html
+params:
+  year: 2023
+---
+```
+. . . 
+
+Subset data based on parameters:
+
+```{r}
+#| eval: false
+#| echo: true
+data_subset <- data |>
+  dplyr::filter(
+    year == params$year
+  )
+```
+
+## Parameterised documents
+
+```{r}
+#| eval: false
+#| echo: true
+quarto::quarto_render(
+  input = "document.qmd",
+  execute_params = list("year" = 2022)
+)
+```
+
+. . . 
+
+Map over multiple years with {purrr}:
+
+```{r}
+#| eval: false
+#| echo: true
+purrr::walk(2018:2022, ~ quarto::quarto_render(
+  input = "document.qmd",
+  execute_params = list("year" = .x),
+  output_file = glue::glue("report_{.x}.html")
+))
+```
+
+
+## Resources
+
+<br>
+
+* Documentation: [quarto.org](https://quarto.org/) 
+
+* GitHub Discussions: [github.com/quarto-dev/quarto-cli/discussions](https://github.com/quarto-dev/quarto-cli/discussions) 
+
+* Intro Webinar: [jthomasmock.github.io/quarto-2hr-webinar](https://jthomasmock.github.io/quarto-2hr-webinar/) 
+
+* Awesome Quarto List: [github.com/mcanouil/awesome-quarto](https://github.com/mcanouil/awesome-quarto)
+
+
+# Your turn! <br><small>Any questions?</small> {background-color="#D9DBDB"}
+
+## Things to try!
+
+* Create a new Quarto HTML document and fill in the YAML options.
+
+* Insert a new R code block.
+
+* Load some data e.g. `data("CO2")` and create a plot.
+
+* Render your document.
+
+* Change the code block options.
+
+* Edit the YAML options to create `revealjs` slides instead.
+
+* Look at the Quarto documentation to view other YAML options for `revealjs` slides.
+
+* Bonus: create a parameterised document!
