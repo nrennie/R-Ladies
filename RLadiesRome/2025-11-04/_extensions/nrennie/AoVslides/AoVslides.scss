@@ -1,0 +1,158 @@
+/*-- scss:defaults --*/
+
+$border-leftright-width: 80px;
+$border-updown-width: 40px;
+
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
+// font family
+$font-family-sans-serif: 'Source Sans 3', Arial, sans-serif !default;
+
+// font size
+$presentation-h1-font-size: 2.6em;
+$presentation-h2-font-size: 1.7em;
+$presentation-h3-font-size: 1.4em;
+$presentation-h4-font-size: 1.1em;
+$presentation-font-size-root: 40px;
+$presentation-line-height: 1.5em;
+
+// font colour
+$presentation-heading-color: #200029 !default;
+
+// code
+$code-color: #400052 !default;
+$code-block-font-size: 0.7em;
+$code-block-border-color: #200029;
+$code-block-bg: #F0F5F5;
+
+// bg colours
+$body-color: #200029;
+$link-color: #9300B8;
+$body-bg: #ffffff;
+$nr-contrast: #9300B8;
+$nr-light: #FFFFFF;
+$nr-mid: #9300B8;
+$nr-dark: #200029;
+
+
+/*-- scss:rules --*/
+
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
+.reveal {
+  font-family: $font-family-sans-serif;
+}
+
+// fonts
+.subtitle {
+  font-size: $presentation-h3-font-size;
+  font-family: $font-family-sans-serif;
+}
+
+.title, .subtitle, .quarto-title-authors, .date {
+  text-align: left;
+  padding-left: 0px;
+  max-width: 60%;
+}
+
+h1 {
+  text-align: left;
+  padding-left: 0px;
+  max-width: 60%;
+}
+
+.quarto-title-authors, .quarto-title-author {
+  justify-content: left !important;
+  padding-left: 0px !important;
+}
+
+
+h2 {
+  padding-bottom: 25px;
+}
+
+.author {
+  color: $body-bg;
+  font-size: $presentation-h4-font-size;
+  font-family: $font-family-sans-serif;
+}
+
+.author a {
+  color: $body-bg;
+  font-size: $presentation-h4-font-size;
+  font-family: $font-family-sans-serif;
+}
+
+section.has-dark-background a, section.has-dark-background a:hover {
+  color: $body-bg;
+}
+
+section.has-dark-background code {
+  color: $nr-contrast;
+}
+
+.reveal .footer {
+  color: $link-color;
+  font-family: $font-family-sans-serif;
+}
+
+.slide-number, .reveal.has-logo .slide-number {
+  bottom: 25px !important;
+  left: 25px !important;
+  top: unset !important;
+  color: $nr-dark !important;
+  z-index: -999 !important;
+}
+
+.reveal .slide-logo {
+  right: 30px;
+  padding-right: 20px !important;
+  padding-bottom: 30px !important;
+  max-height: 60px !important;
+  z-index: 1;
+}
+
+.reveal .slide-menu-button {
+    left: 5px;
+    top: 15px;
+    padding-left: 10px;
+    color: $nr-mid;
+  }
+  
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+  color: $nr-mid;
+  height: 2%;
+}
+
+ul li {
+  padding: 5px 0px;
+}
+
+.right {
+  text-align: right !important
+}
+
+.center {
+  text-align: center !important
+}
+
+.small {
+ font-size: 30px;
+}
+
+.big {
+  font-weight: bold;
+  font-size: 2.4em;
+}
+
+.reveal pre.sourceCode code {
+  max-height: 800px;
+}
+
+.reveal pre code {
+  max-height: 800px;
+}
+

@@ -1,0 +1,13 @@
+title: Nicola Rennie Presentation Template
+author: Nicola Rennie
+version: 0.0.1
+contributes:
+  formats:
+    revealjs:
+      width: 1600
+      height: 900
+      footer: ""
+      theme: AoVslides.scss
+      title-slide-attributes:
+        data-background-color: "#200029"
+        data-background-image: "images/bg.png"

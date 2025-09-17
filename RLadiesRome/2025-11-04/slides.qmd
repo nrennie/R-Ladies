@@ -1,0 +1,74 @@
+---
+title: "Developing your data visualisation skills in `ggplot2`"
+subtitle: "R-Ladies Rome"
+author: "Nicola Rennie"
+date: "4 November 2025"
+date-format: long
+format:
+  AoVslides-revealjs:
+    self-contained: true
+    auto-stretch: false
+    code-line-numbers: false
+    footer: "{{< fa brands linkedin >}} [nicola-rennie](https://www.linkedin.com/in/nicola-rennie/) {{< fa brands github >}} [nrennie](https://github.com/nrennie) {{< fa globe >}} [nrennie.rbind.io](https://nrennie.rbind.io/)"
+    code-block-height: "750px"
+    slide-number: c
+    fig-align: center
+execute: 
+  eval: true
+  echo: true
+  message: false
+  warning: false
+---
+
+## About me
+
+::: columns
+::: {.column width="60%"}
+
+Data visualisation specialist, mainly using R, Python, and D3.
+
+<br>
+
+Background in statistics, operational research, and data science.
+
+<br>
+
+Developer of several R packages, mainly for visualisation.
+
+<br>
+
+Author of *The Art of Visualization with ggplot2*.
+
+:::
+
+::: {.column width="40%"}
+
+![](images/cover.png){fig-align="center" fig-alt="Cover of The Art of Visualization with ggplot2" width=75%}
+
+:::
+
+:::
+
+# Data {background-color="#003c57" background-image="images/bg.png"} 
+
+## Slide 1
+
+# Exploratory work {background-color="#003c57" background-image="images/bg.png"} 
+
+## Slide 1
+
+# Preparing a plot {background-color="#003c57" background-image="images/bg.png"} 
+
+## Slide 1
+
+# Advanced styling {background-color="#003c57" background-image="images/bg.png"} 
+
+## Slide 1
+
+# Reflection {background-color="#003c57" background-image="images/bg.png"} 
+
+## Reflection
+
+## Resources
+
+# Read the book: [nrennie.rbind.io/art-of-viz](https://nrennie.rbind.io/art-of-viz/) {background-color="#003c57" background-image="images/bg.png"} 
