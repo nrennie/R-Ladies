@@ -49,13 +49,59 @@ Author of *The Art of Visualization with ggplot2*.
 
 :::
 
+## Intro to session
+
+## TidyTuesday data
+
+## Packages
+
+```{r}
+library(dplyr)
+library(ggplot2)
+library(ggtext)
+library(glue)
+library(showtext)
+library(stringr)
+library(sysfonts)
+library(tidyr)
+library(tidytuesdayR)
+```
+
+
 # Data {background-color="#003c57" background-image="images/bg.png"} 
 
-## Slide 1
+## TidyTuesday repo
+
+https://github.com/rfordatascience/tidytuesday/blob/main/data/2023/2023-01-31/readme.md
+
+## Live demo
+
+```{r}
+#| code-fold: true
+tuesdata <- tt_load("2023-01-31")
+cats <- tuesdata$cats_uk
+cats_reference <- tuesdata$cats_uk_reference
+```
 
 # Exploratory work {background-color="#003c57" background-image="images/bg.png"} 
 
-## Slide 1
+## Questions to ask
+
+## Live demo
+
+Geo
+
+```{r}
+#| code-fold: true
+#| output: hide
+plot(
+  x = cats$location_long,
+  y = cats$location_lat,
+  xlab = "Longitude",
+  ylab = "Latitude"
+)
+```
+
 
 # Preparing a plot {background-color="#003c57" background-image="images/bg.png"} 
 
