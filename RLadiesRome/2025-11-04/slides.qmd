@@ -52,7 +52,18 @@ Author of *The Art of Visualization with ggplot2*.
 
 ## What's this session about?
 
-* 
+Aims:
+
+* Walk through the process of creating a chart with `ggplot2`
+* A little bit of data visualisation design theory
+* R tips and tricks to improve your charts
+* Show the *process* to just the code and chart
+
+During this session:
+
+* Code-along and make a chart!
+* Sit back and relax!
+* Ask lots of questions!
 
 ## TidyTuesday
 
@@ -60,8 +71,10 @@ Author of *The Art of Visualization with ggplot2*.
 
 ::: {.column}
 
-* New data every week
-* GitHub link
+* [TidyTuesday](https://github.com/rfordatascience/tidytuesday) is a weekly social data project
+* New dataset uploaded every week
+* Make a chart/dashboard/model/...
+* Share your output and code
 
 :::
 
@@ -294,8 +307,50 @@ Have you ever spent ages tinkering with a plot you’re previewing in RStudio...
 
 ## How do we fix this?
 
-* camcorder
-* ggview
+::: columns
+
+::: {.column}
+
+`camcorder`: [github.com/thebioengineer/camcorder](https://github.com/thebioengineer/camcorder)
+
+* Automatically saves an image every time you print a plot
+* Make a .gif using those image files
+* Preview the `ggplot2` output directly with your specifications in RStudio IDE - *you’ll get what you see*
+
+:::
+
+::: {.column}
+
+![](images/camcorder.png){width="80%" fig-align="center" fig-alt="camcorder hex sticker"}
+
+:::
+
+:::
+
+
+## How do we fix this?
+
+![](images/20250923.gif){width="45%" fig-align="center" fig-alt="Gif showing the process of making a chart"}
+
+## How do we fix this?
+
+::: columns
+
+::: {.column}
+
+`ggview`: [github.com/idmn/ggview](https://github.com/idmn/ggview)
+
+* Preview the `ggplot2` output directly with your specifications in RStudio IDE - *you’ll get what you see*
+
+:::
+
+::: {.column}
+
+![](images/ggview.svg){width="80%" fig-align="center" fig-alt="ggview hex sticker"}
+
+:::
+
+:::
 
 ## Live demo 
 
@@ -324,8 +379,31 @@ basic_plot
 
 ## Colours
 
-Resources for choosing colours
-Colours as variables
+::: columns
+
+::: {.column width="60%"}
+
+How do we choose good colours?
+
+* Appropriate palette types: [colorbrewer2.org](https://colorbrewer2.org/)
+
+* Colour associations: [data.europa.eu/apps/data-visualisation-guide/colour-connotations](https://data.europa.eu/apps/data-visualisation-guide/colour-connotations)
+
+* Check palette accessibility: [github.com/clauswilke/colorblindr](https://github.com/clauswilke/colorblindr)
+
+* Coolors: [coolors.co/ff6666-ccff66-5d2e8c-2ec4b6-f1e8b8](https://coolors.co/ff6666-ccff66-5d2e8c-2ec4b6-f1e8b8)
+
+* Palettes in R: [emilhvitfeldt.github.io/paletteer](https://emilhvitfeldt.github.io/paletteer/)
+
+:::
+
+::: {.column width="40%"}
+
+![](images/styling-palettes.png){width="100%" fig-align="center" fig-alt="Three colour palette examples"}
+
+:::
+
+:::
 
 
 ## Live demo {.scrollable}
@@ -355,11 +433,26 @@ basic_plot <- ggplot(
 
 ## Fonts
 
-* packages for fonts
-* local fonts -> ragg
-* google fonts browse
+::: columns
 
-Save as variables
+::: {.column}
+
+* Fonts in R are often cited as being one of the most tricky aspects of visualisation.
+* There are lots of different packages, which one should you use?
+  * Local font files -> `ragg` and `systemfonts`
+  * Google fonts -> `showtext`
+
+:::
+
+::: {.column .center}
+
+[fonts.google.com](https://fonts.google.com/)
+
+![](images/fonts.png){width="100%" fig-align="center" fig-alt="Screenshot of Google fonts"}
+
+:::
+
+:::
 
 ## Live demo
 
@@ -376,7 +469,39 @@ body_font <- "Ubuntu"
 
 ## Data-driven annotations
 
-glue
+We could type out text for the annotations such as:
+
+```r
+"The value of x at time 25 is 123,765."
+```
+
+But this means that:
+
+* You have to manually look up the values
+* There's a risk of making a typo
+* You have to remember to update it if the data changes
+
+## Data-driven annotations
+
+::: columns
+
+::: {.column}
+
+There are different ways to combine variables with text in R.
+
+* `paste()` / `paste0()`
+* `sprintf()`
+* `glue()`
+
+:::
+
+::: {.column}
+
+![](images/glue.png){width="80%" fig-align="center" fig-alt="Glue logo"}
+
+:::
+
+:::
 
 ## Live demo {.scrollable}
 
@@ -413,7 +538,14 @@ annotated_plot <- basic_plot +
 
 ## Additional text
 
-narrative or questions
+There are several arguments in `labs()` that we can use to add text to our chart:
+
+* title
+* subtitle
+* caption
+* tag
+* x/y axis labels
+* legend titles
 
 ## Live demo
 
@@ -443,8 +575,12 @@ text_plot <- annotated_plot +
 ## Final adjustments
 
 * What about the fonts we chose?
+
 * Where's the subtitle text gone?!
+
 * The legend takes up a lot of space
+
+* *That* grey background...
 
 ## Live demo {.scrollable}
 
@@ -506,9 +642,9 @@ theme_plot2
 
 ## Reflection 
 
-* legend box and the annotation box currently look quite different. The legend box has square corners, compared to rounded corners, and the outline color is darker. For consistency, it would look better if both boxes appear with the same styling.
+* The legend box and the annotation box currently look quite different.
 
-* If we had joined the GPS data, we could have perhaps made a more informative plot showing the relationship between age and activity level.Indoor != resting
+* If we had joined the GPS data, we could have perhaps made a more informative plot showing the relationship between age and activity level.
 
 ## Want to keep going?
 
@@ -520,13 +656,6 @@ theme_plot2
 
 * Add another annotation that highlights the cat with the highest average speed.
 
-## Tips for developing skills
-
-* Just make charts
-* Learn through play
-* Learn in public
-sahre code ideas, look at what other people make with the same data
-
 ## Resources
 
 * **Slides**: [nrennie.rbind.io/talks/rladies-rome-ggplot2](https://nrennie.rbind.io/talks/rladies-rome-ggplot2/)
@@ -537,6 +666,12 @@ sahre code ideas, look at what other people make with the same data
 
 * **R Graphics Cookbook**: [r-graphics.org](https://r-graphics.org/)
 
+* **TidyTuesday**: [github.com/rfordatascience/tidytuesday](https://github.com/rfordatascience/tidytuesday)
+
 # Read the book: [nrennie.rbind.io/art-of-viz](https://nrennie.rbind.io/art-of-viz/) {background-color="#003c57" background-image="images/bg.png"} 
 
+::: {.left .fragment}
+
 Questions?
+
+:::
