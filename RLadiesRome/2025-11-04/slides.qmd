@@ -57,13 +57,15 @@ Aims:
 * Walk through the process of creating a chart with `ggplot2`
 * A little bit of data visualisation design theory
 * R tips and tricks to improve your charts
-* Show the *process* to just the code and chart
+* Show the *process* not just the code and chart
 
 During this session:
 
 * Code-along and make a chart!
 * Sit back and relax!
 * Ask lots of questions!
+
+# Slides:<br>[nrennie.rbind.io/talks/rladies-rome-ggplot2](https://nrennie.rbind.io/talks/rladies-rome-ggplot2/) {.center}
 
 ## TidyTuesday
 
@@ -114,7 +116,7 @@ library(tidytuesdayR)
 
 Each week you can access the data (and a README file) on GitHub.
 
-We'll be using a [dataset from 2023](https://github.com/rfordatascience/tidytuesday/blob/main/data/2023/2023-01-31/readme.md) for these examples.
+We'll be using a [dataset from 2023](https://github.com/rfordatascience/tidytuesday/blob/main/data/2023/2023-01-31/readme.md){target='_blank'} for these examples.
 
 :::
 
@@ -446,7 +448,7 @@ basic_plot <- ggplot(
 
 ::: {.column .center}
 
-[fonts.google.com](https://fonts.google.com/)
+[fonts.google.com](https://fonts.google.com/){target='_blank'} 
 
 ![](images/fonts.png){width="100%" fig-align="center" fig-alt="Screenshot of Google fonts"}
 
