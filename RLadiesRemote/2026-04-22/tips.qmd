@@ -1,0 +1,45 @@
+---
+title: "Working Smarter in R: Tips, Tricks & Real-World Lessons"
+subtitle: "Useful links"
+---
+
+## Advice
+
+## Links shared
+
+```{r}
+#| eval: true
+#| echo: false
+#| warning: false
+#| message: false
+library(readr)
+library(stringr)
+library(dplyr)
+library(glue)
+fpath <- glue("{here::here()}/RLadiesRemote/2026-04-22/meeting_saved_new_chat.txt")
+raw_data <- read_lines(fpath)
+url_pattern <- "https?://\\S+"
+urls <- regmatches(raw_data, gregexpr(url_pattern,  raw_data)) |> 
+  unlist()
+all_urls <- urls |> 
+  tibble(url = _) |> 
+  filter(!(row_number() %in% 1:4)) |> 
+  mutate(url = str_remove(url, "\":")) |> 
+  distinct() |> 
+  filter(!str_detect(url, "\\.\\.\\.")) |> 
+  mutate(url_text = str_remove(url, "https://"),
+         url_text = str_remove(url_text, "/$"))
+```
+
+```{r}
+#| eval: true
+#| echo: false
+#| warning: false
+#| message: false
+#| output: asis
+for (i in 1:nrow(all_urls)) {
+  output <- glue("* [{all_urls$url_text[i]}]({all_urls$url[i]})\n\n")
+  cat(output)
+}
+```
+
